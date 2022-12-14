@@ -7,6 +7,7 @@ public protocol HomeTabRoute {
     func toPopularMovieSection()
     func toTopRatedSection()
     func toPageUpComingSection()
+    func popUpError(with errorMessage: String)
 }
 
 public protocol FavoriteTabBarRoute {
@@ -22,5 +23,9 @@ public protocol ProfileTabRoute {
 public protocol ProfileEditDelegate: AnyObject {
     func getEmail()
     func getName()
+}
+
+public protocol ComponentsRouter {
+    func toErrorView() -> UIViewController
 }
 

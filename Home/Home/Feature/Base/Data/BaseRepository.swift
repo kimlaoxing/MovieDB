@@ -2,7 +2,7 @@ import Foundation
 import Favorite
 
 protocol BaseRepository {
-    func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (BaseResponse) -> Void)
+    func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (Result<BaseResponse, Error>) -> Void)
 }
 
 final class BaseRepositoryData: BaseRepository {
@@ -18,9 +18,14 @@ final class BaseRepositoryData: BaseRepository {
         self.localDataSource = localData
     }
     
-    func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (BaseResponse) -> Void) {
+    func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (Result<BaseResponse, Error>) -> Void) {
         self.remoteData.getListMovie(with: page, category: category) { data in
-            completion(data)
+            switch data {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let data):
+                completion(.success(data))
+            }
         }
     }
 }

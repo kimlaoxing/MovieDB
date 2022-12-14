@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0098133B7090A58335379C85 /* Pods_Components.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE47AA10F6CEA8A90BF0D3B /* Pods_Components.framework */; };
 		EA209B172902867000412161 /* TwoLabelInHorizontalStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B162902867000412161 /* TwoLabelInHorizontalStack.swift */; };
+		EA5D831329498C9F0054C6C0 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D831229498C9F0054C6C0 /* ErrorViewController.swift */; };
 		EAB14642290129CE002B51E2 /* Components.h in Headers */ = {isa = PBXBuildFile; fileRef = EAB14641290129CE002B51E2 /* Components.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EAB1464A29012A29002B51E2 /* Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB1464929012A29002B51E2 /* Padding.swift */; };
 		EAB1464C29012A42002B51E2 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB1464B29012A42002B51E2 /* ScreenSize.swift */; };
@@ -34,6 +35,7 @@
 		EA209ABA29027D8800412161 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA209ABE29027DE700412161 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA209B162902867000412161 /* TwoLabelInHorizontalStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoLabelInHorizontalStack.swift; sourceTree = "<group>"; };
+		EA5D831229498C9F0054C6C0 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		EAB1463E290129CE002B51E2 /* Components.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Components.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB14641290129CE002B51E2 /* Components.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Components.h; sourceTree = "<group>"; };
 		EAB1464929012A29002B51E2 /* Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Padding.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				EAB1466B29012DCF002B51E2 /* DefaultCollectionView.swift */,
 				EAB1467A29014081002B51E2 /* EmptyView.swift */,
 				EA209B162902867000412161 /* TwoLabelInHorizontalStack.swift */,
+				EA5D831229498C9F0054C6C0 /* ErrorViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				EAB1464E29012A67002B51E2 /* SafeAreaInsert.swift in Sources */,
 				EAB1464A29012A29002B51E2 /* Padding.swift in Sources */,
 				EAB1465029012A79002B51E2 /* DecodeWrapper.swift in Sources */,
+				EA5D831329498C9F0054C6C0 /* ErrorViewController.swift in Sources */,
 				EAB1466729012C6F002B51E2 /* APIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

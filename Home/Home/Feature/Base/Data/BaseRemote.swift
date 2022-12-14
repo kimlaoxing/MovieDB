@@ -3,11 +3,11 @@ import Components
 import Alamofire
 
 protocol BaseRemote {
-    mutating func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (BaseResponse) -> Void)
+    mutating func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (Result<BaseResponse, Error>) -> Void)
 }
 
 struct BaseRemoteData: BaseRemote {
-    mutating func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (BaseResponse) -> Void) {
+    mutating func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (Result<BaseResponse, Error>) -> Void) {
         let endpoint = "\(APIService.basePath)\(category.rawValue)?api_key=\(APIService.apiKey)"
         let parameters: Parameters = [ "page": "\(page)" ]
         AF.request(endpoint,
@@ -19,9 +19,9 @@ struct BaseRemoteData: BaseRemote {
             .responseDecodable(of: BaseResponse.self) { data in
                 switch data.result {
                 case .success(let data):
-                    completion(data)
-                case .failure:
-                    break
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
             }
     }

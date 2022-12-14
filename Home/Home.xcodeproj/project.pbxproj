@@ -38,6 +38,7 @@
 		EA209B242902944B00412161 /* ListSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B232902944B00412161 /* ListSectionViewController.swift */; };
 		EA209B262902947300412161 /* ListSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B252902947300412161 /* ListSectionTableViewCell.swift */; };
 		EA209B2B2902A15E00412161 /* DetailMovieRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B2A2902A15E00412161 /* DetailMovieRoute.swift */; };
+		EA5D8318294994610054C6C0 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D8317294994610054C6C0 /* ErrorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,6 +89,7 @@
 		EA209B232902944B00412161 /* ListSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionViewController.swift; sourceTree = "<group>"; };
 		EA209B252902947300412161 /* ListSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionTableViewCell.swift; sourceTree = "<group>"; };
 		EA209B2A2902A15E00412161 /* DetailMovieRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieRoute.swift; sourceTree = "<group>"; };
+		EA5D8317294994610054C6C0 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +292,7 @@
 			children = (
 				EA209AC329027E3300412161 /* BaseView.swift */,
 				EA209AC529027E3A00412161 /* BaseCollectionViewCell.swift */,
+				EA5D8317294994610054C6C0 /* ErrorViewController.swift */,
 			);
 			path = ReuseView;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				EA209AB329027C6800412161 /* DetailBaseViewController.swift in Sources */,
 				EA209AB129027C5D00412161 /* DetailBaseView.swift in Sources */,
 				EA209B2B2902A15E00412161 /* DetailMovieRoute.swift in Sources */,
+				EA5D8318294994610054C6C0 /* ErrorViewController.swift in Sources */,
 				EA209A9C29027B6900412161 /* BaseRemote.swift in Sources */,
 				EA209A9E29027B7000412161 /* BaseRepository.swift in Sources */,
 				EA209AAF29027C5300412161 /* DetailBaseDomain.swift in Sources */,

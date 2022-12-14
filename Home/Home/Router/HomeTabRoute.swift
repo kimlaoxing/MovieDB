@@ -79,6 +79,14 @@ extension HomeTabRoute where Self: Router {
         router.root = vc
         route(to: vc, as: transition)
     }
+    
+    func toPopUpError(with transisiton: Transition, errorMessage: String) {
+        let router = DefaultRouter(rootTransition: transisiton)
+        let vc = ErrorViewController()
+        vc.error = errorMessage
+        router.root = vc
+        route(to: vc, as: transisiton)
+    }
 }
 
 extension DefaultRouter: HomeTabRoute {
@@ -100,6 +108,10 @@ extension DefaultRouter: HomeTabRoute {
     
     public func toPageUpComingSection() {
         toPageUpComingSection(with: PushTransition())
+    }
+    
+    public func popUpError(with errorMessage: String) {
+        toPopUpError(with: ModalTransition(), errorMessage: errorMessage)
     }
 
 }

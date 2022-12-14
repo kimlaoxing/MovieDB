@@ -37,6 +37,11 @@ project 'Components/Components.project'
 core_pods
 end
 
+target 'SearchBar' do
+project 'SearchBar/SearchBar.project'
+core_pods
+end
+
 target 'MovieDB' do
 project 'MovieDB.project'
 core_pods

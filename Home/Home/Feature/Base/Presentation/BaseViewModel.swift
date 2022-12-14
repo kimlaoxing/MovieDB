@@ -17,6 +17,7 @@ protocol BaseViewModelOutput {
     func goToPopularMovieSection()
     func goToTopRatedSection()
     func goToPageUpComingSection()
+    func popUpError()
 }
 
 protocol BaseViewModelInput {
@@ -29,6 +30,7 @@ protocol BaseViewModelInput {
     var isLastPageTopRatedMovie: Observable<Bool?> { get }
     var isLastPageUpComing: Observable<Bool?> { get }
     var state: Observable<BaseViewState> { get }
+    var error: Observable<String> { get }
 }
 
 protocol BaseViewModel: BaseViewModelOutput, BaseViewModelInput { }
@@ -39,6 +41,7 @@ final class DefaultBaseViewModel: BaseViewModel {
     let listPopularMovie: Observable<[BaseResponse.Result]> = Observable([])
     let listTopRatedMovie: Observable<[BaseResponse.Result]> = Observable([])
     let listUpComingMovie: Observable<[BaseResponse.Result]> = Observable([])
+    let error: Observable<String> = Observable("")
     
     let isLastPageNowPlaying: Observable<Bool?> = Observable(false)
     let isLastPopularMovie: Observable<Bool?> = Observable(false)
@@ -95,6 +98,10 @@ final class DefaultBaseViewModel: BaseViewModel {
     func goToPageUpComingSection() {
         self.router.toPageUpComingSection()
     }
+    
+    func popUpError() {
+        self.router.popUpError(with: self.error.value)
+    }
 }
 
 extension DefaultBaseViewModel {
@@ -149,80 +156,104 @@ extension DefaultBaseViewModel {
     func getNowPlaying() {
         self.state.value = .loading
         self.useCase.getNowPlaying(with: self.pageNowPlaying) { data in
-            self.totalPageNowPlaying = data.total_pages ?? 0
-            if self.pageNowPlaying == 1 {
-                self.isLastPageNowPlaying.value = self.pageNowPlaying == self.totalPageNowPlaying
-                self.pageNowPlaying += 1
-                self.listNowPlaying.value = data.results ?? []
-            } else {
-                self.isLastPageNowPlaying.value = self.pageNowPlaying == self.totalPageNowPlaying
-                self.pageNowPlaying += 1
-                var newData: [BaseResponse.Result] = []
-                newData.append(contentsOf: self.listNowPlaying.value)
-                newData.append(contentsOf: data.results ?? [])
-                self.listNowPlaying.value = newData
+            switch data {
+            case .failure(let error):
+                self.error.value = "\(error)"
+                self.popUpError()
+            case .success(let data):
+                self.totalPageNowPlaying = data.total_pages ?? 0
+                if self.pageNowPlaying == 1 {
+                    self.isLastPageNowPlaying.value = self.pageNowPlaying == self.totalPageNowPlaying
+                    self.pageNowPlaying += 1
+                    self.listNowPlaying.value = data.results ?? []
+                } else {
+                    self.isLastPageNowPlaying.value = self.pageNowPlaying == self.totalPageNowPlaying
+                    self.pageNowPlaying += 1
+                    var newData: [BaseResponse.Result] = []
+                    newData.append(contentsOf: self.listNowPlaying.value)
+                    newData.append(contentsOf: data.results ?? [])
+                    self.listNowPlaying.value = newData
+                }
+                self.state.value = .normal
             }
-            self.state.value = .normal
         }
     }
     
     func getPopular() {
         self.state.value = .loading
         self.useCase.getPopular(with: self.pagePopularMovie) { data in
-            self.totalPagePopularMovie = data.total_results ?? 0
-            if self.pagePopularMovie == 1 {
-                self.isLastPopularMovie.value = self.pagePopularMovie == self.totalPagePopularMovie
-                self.pagePopularMovie += 1
-                self.listPopularMovie.value = data.results ?? []
-            } else {
-                self.isLastPopularMovie.value = self.pagePopularMovie == self.totalPagePopularMovie
-                self.pagePopularMovie += 1
-                var newData: [BaseResponse.Result] = []
-                newData.append(contentsOf: self.listPopularMovie.value)
-                newData.append(contentsOf: data.results ?? [])
-                self.listPopularMovie.value = newData
+            switch data {
+            case .success(let data):
+                self.totalPagePopularMovie = data.total_results ?? 0
+                if self.pagePopularMovie == 1 {
+                    self.isLastPopularMovie.value = self.pagePopularMovie == self.totalPagePopularMovie
+                    self.pagePopularMovie += 1
+                    self.listPopularMovie.value = data.results ?? []
+                } else {
+                    self.isLastPopularMovie.value = self.pagePopularMovie == self.totalPagePopularMovie
+                    self.pagePopularMovie += 1
+                    var newData: [BaseResponse.Result] = []
+                    newData.append(contentsOf: self.listPopularMovie.value)
+                    newData.append(contentsOf: data.results ?? [])
+                    self.listPopularMovie.value = newData
+                }
+                self.state.value = .normal
+            case .failure(let error):
+                self.error.value = "\(error)"
+                self.popUpError()
             }
-            self.state.value = .normal
         }
     }
     
     func getTopRatedMovie() {
         self.state.value = .loading
         self.useCase.getTopRated(with: self.pageTopRated) { data in
-            self.totalPageTopRated = data.total_results ?? 0
-            if self.pageTopRated == 1 {
-                self.isLastPageTopRatedMovie.value = self.pageTopRated == self.totalPageTopRated
-                self.pageTopRated += 1
-                self.listTopRatedMovie.value = data.results ?? []
-            } else {
-                self.isLastPageTopRatedMovie.value = self.pageTopRated == self.totalPageTopRated
-                self.pageTopRated += 1
-                var newData: [BaseResponse.Result] = []
-                newData.append(contentsOf: self.listTopRatedMovie.value)
-                newData.append(contentsOf: data.results ?? [])
-                self.listTopRatedMovie.value = newData
+            switch data {
+            case .failure(let error):
+                self.error.value = "\(error)"
+                self.popUpError()
+            case .success(let data):
+                self.totalPageTopRated = data.total_results ?? 0
+                if self.pageTopRated == 1 {
+                    self.isLastPageTopRatedMovie.value = self.pageTopRated == self.totalPageTopRated
+                    self.pageTopRated += 1
+                    self.listTopRatedMovie.value = data.results ?? []
+                } else {
+                    self.isLastPageTopRatedMovie.value = self.pageTopRated == self.totalPageTopRated
+                    self.pageTopRated += 1
+                    var newData: [BaseResponse.Result] = []
+                    newData.append(contentsOf: self.listTopRatedMovie.value)
+                    newData.append(contentsOf: data.results ?? [])
+                    self.listTopRatedMovie.value = newData
+                }
+                self.state.value = .normal
             }
-            self.state.value = .normal
         }
     }
     
     func getUpComing() {
         self.state.value = .loading
         self.useCase.getUpComing(with: self.pageUpComing) { data in
-            self.totalPageUpComing = data.total_results ?? 0
-            if self.pageUpComing == 1 {
-                self.isLastPageUpComing.value = self.pageUpComing == self.totalPageUpComing
-                self.pageUpComing += 1
-                self.listUpComingMovie.value = data.results ?? []
-            } else {
-                self.isLastPageUpComing.value = self.pageUpComing == self.totalPageUpComing
-                self.pageUpComing += 1
-                var newData: [BaseResponse.Result] = []
-                newData.append(contentsOf: self.listUpComingMovie.value)
-                newData.append(contentsOf: data.results ?? [])
-                self.listUpComingMovie.value = newData
+            switch data {
+            case .success(let data):
+                self.totalPageUpComing = data.total_results ?? 0
+                if self.pageUpComing == 1 {
+                    self.isLastPageUpComing.value = self.pageUpComing == self.totalPageUpComing
+                    self.pageUpComing += 1
+                    self.listUpComingMovie.value = data.results ?? []
+                } else {
+                    self.isLastPageUpComing.value = self.pageUpComing == self.totalPageUpComing
+                    self.pageUpComing += 1
+                    var newData: [BaseResponse.Result] = []
+                    newData.append(contentsOf: self.listUpComingMovie.value)
+                    newData.append(contentsOf: data.results ?? [])
+                    self.listUpComingMovie.value = newData
+                }
+                self.state.value = .normal
+            case .failure(let error):
+                self.error.value = "\(error)"
+                self.popUpError()
             }
-            self.state.value = .normal
         }
     }
 }
