@@ -1,6 +1,7 @@
 import Foundation
 import Components
 import Router
+import RxRelay
 
 protocol FavoriteListViewModelInput {
     func getListFavorite()
@@ -10,15 +11,15 @@ protocol FavoriteListViewModelInput {
 
 protocol FavoriteListViewModelOutput {
     var gameListFavorite: Observable<[FavoriteModel]?> { get }
-    var state: Observable<BaseViewState> { get }
+    var state: BehaviorRelay<BaseViewState> { get }
 }
 
 protocol FavoriteListViewModel: FavoriteListViewModelOutput, FavoriteListViewModelInput {}
 
 final class DefaultFavoriteListViewModel: FavoriteListViewModel {
     
-    let gameListFavorite: Observable<[FavoriteModel]?> = Observable(nil)
-    let state: Observable<BaseViewState> = Observable(.loading)
+    let gameListFavorite: Observable<[FavoriteModel]?> = Observable([])
+    let state: BehaviorRelay<BaseViewState> = BehaviorRelay.init(value: .loading)
     private let router: Routes
     private let useCase: FavoriteListUseCaseProtocol
     typealias Routes = HomeTabRoute
@@ -34,10 +35,10 @@ final class DefaultFavoriteListViewModel: FavoriteListViewModel {
     func getListFavorite() {
         self.useCase.getListFavorite { data in
             if data.isEmpty {
-                self.state.value = .empty
+                self.state.accept(.empty)
             } else {
                 self.gameListFavorite.value = data
-                self.state.value = .normal
+                self.state.accept(.normal)
             }
         }
     }

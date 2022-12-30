@@ -1,10 +1,11 @@
 import Declayout
-import UIKit
 import Components
+import RxSwift
 
 final class FavoriteListViewController: UIViewController {
     
     var viewModel: FavoriteListViewModel?
+    private let bag = DisposeBag()
     
     private lazy var emptyView = EmptyDataView.make {
         $0.center(to: view)
@@ -51,9 +52,10 @@ final class FavoriteListViewController: UIViewController {
             }
         }
         
-        viewModel?.state.observe(on: self) { [weak self] data in
-            self?.handleState(with: data)
-        }
+        viewModel?.state.subscribe(onNext: { [weak self] state in
+            guard let self = self else { return }
+            self.handleState(with: state)
+        }).disposed(by: bag)
     }
     
     private func handleState(with state: BaseViewState) {
@@ -99,6 +101,7 @@ extension FavoriteListViewController: UITableViewDelegate, UITableViewDataSource
             tableView.beginUpdates()
             self.viewModel?.gameListFavorite.value?.remove(at: indexPath.row)
             self.viewModel?.deleteGame(with: Int(id))
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
