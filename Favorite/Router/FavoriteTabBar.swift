@@ -6,7 +6,8 @@ extension FavoriteTabBarRoute where Self: Router {
     public func makeFavoriteTab() -> UIViewController {
         let router = DefaultRouter(rootTransition: ModalTransition())
         let vc = FavoriteListViewController()
-        let vm = DefaultFavoriteListViewModel(router: router as! HomeTabRoute)
+        let useCase = FavoriteListInjection.init().provideFavoriteList()
+        let vm = DefaultFavoriteListViewModel(useCase: useCase, router: router as! HomeTabRoute)
         vc.viewModel = vm
         vc.navigationItem.backButtonTitle = ""
         router.root = vc

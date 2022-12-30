@@ -19,12 +19,15 @@ final class DefaultFavoriteListViewModel: FavoriteListViewModel {
     
     let gameListFavorite: Observable<[FavoriteModel]?> = Observable(nil)
     let state: Observable<BaseViewState> = Observable(.loading)
-    private let useCase = FavoriteListUseCase()
     private let router: Routes
-    
+    private let useCase: FavoriteListUseCaseProtocol
     typealias Routes = HomeTabRoute
     
-    init(router: Routes) {
+    init(
+        useCase: FavoriteListUseCaseProtocol,
+        router: Routes
+    ) {
+        self.useCase = useCase
         self.router = router
     }
     

@@ -10,6 +10,7 @@
 		33D95FEA57B2E629A1FEE6F3 /* Pods_Favorite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3EE282817067E3BB8D1139F /* Pods_Favorite.framework */; };
 		EA209A602902768900412161 /* LocalDataSource.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA209A5E2902768900412161 /* LocalDataSource.xcdatamodeld */; };
 		EA209ACF290280FA00412161 /* FavoriteTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209ACE290280FA00412161 /* FavoriteTabBar.swift */; };
+		EA5AFD2C295F192700F7CB31 /* FavoriteListInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5AFD2B295F192700F7CB31 /* FavoriteListInjection.swift */; };
 		EAB1460E290125F7002B51E2 /* Favorite.h in Headers */ = {isa = PBXBuildFile; fileRef = EAB1460D290125F7002B51E2 /* Favorite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EAB1461829012650002B51E2 /* Router.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB1461729012650002B51E2 /* Router.framework */; };
 		EAB1461929012650002B51E2 /* Router.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EAB1461729012650002B51E2 /* Router.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -46,6 +47,7 @@
 		EA209A5F2902768900412161 /* LocalDataSource.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalDataSource.xcdatamodel; sourceTree = "<group>"; };
 		EA209AC829027F9100412161 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA209ACE290280FA00412161 /* FavoriteTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTabBar.swift; sourceTree = "<group>"; };
+		EA5AFD2B295F192700F7CB31 /* FavoriteListInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListInjection.swift; sourceTree = "<group>"; };
 		EAB1460A290125F7002B51E2 /* Favorite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Favorite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB1460D290125F7002B51E2 /* Favorite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
 		EAB1461729012650002B51E2 /* Router.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Router.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,14 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		EA5AFD2A295F191B00F7CB31 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				EA5AFD2B295F192700F7CB31 /* FavoriteListInjection.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 		EAB14600290125F7002B51E2 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +143,7 @@
 		EAB1461D290126A3002B51E2 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				EA5AFD2A295F191B00F7CB31 /* DI */,
 				EAB1462429012766002B51E2 /* Domain */,
 				EAB1462329012762002B51E2 /* Data */,
 				EAB146222901275C002B51E2 /* Presentation */,
@@ -293,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAB14629290127B8002B51E2 /* FavoriteListViewModel.swift in Sources */,
+				EA5AFD2C295F192700F7CB31 /* FavoriteListInjection.swift in Sources */,
 				EAB1462F290127E3002B51E2 /* FavoriteListDomain.swift in Sources */,
 				EAB1462D290127C9002B51E2 /* FavoriteListRepository.swift in Sources */,
 				EA209ACF290280FA00412161 /* FavoriteTabBar.swift in Sources */,

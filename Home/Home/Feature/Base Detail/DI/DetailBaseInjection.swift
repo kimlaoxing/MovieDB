@@ -1,4 +1,5 @@
 import Foundation
+import Favorite
 
 final class DetailBaseInjection: NSObject {
     
@@ -7,8 +8,14 @@ final class DetailBaseInjection: NSObject {
         return DetailBaseRepository.sharedInstance(remote)
     }
     
+    private func provideFavoriteRepository() -> FavoriteListRepositoryProtocol {
+        let local: FavoriteLocalDataSource = FavoriteLocalDataSource.sharedInstance
+        return FavoriteListRepository.sharedInstance(local)
+    }
+    
     func provideDetailBase() -> DetailBaseUseCaseProtocol {
         let repository = provideRepository()
-        return DetailBaseInteractor(repository: repository)
+        let favoriteRepository = provideFavoriteRepository()
+        return DetailBaseInteractor(repository: repository, favoriteRepository: favoriteRepository)
     }
 }

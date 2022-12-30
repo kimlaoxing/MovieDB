@@ -1,16 +1,18 @@
 import Foundation
 
-protocol FavoriteListDomain {
-    mutating func getListFavorite(_ completion: @escaping ([FavoriteModel]) -> Void)
-    mutating func deleteGame(with id: Int)
+protocol FavoriteListUseCaseProtocol {
+    func getListFavorite(_ completion: @escaping ([FavoriteModel]) -> Void)
+    func deleteGame(with id: Int)
 }
 
-final class FavoriteListUseCase: FavoriteListDomain {
+class FavoriteListInteractor: FavoriteListUseCaseProtocol {
     
-    private var repository: FavoriteListRepository
+    private let repository: FavoriteListRepositoryProtocol
     
-    init() {
-        self.repository = FavoriteListRepositoryData()
+    required init(
+        repository: FavoriteListRepositoryProtocol
+    ) {
+        self.repository = repository
     }
     
     func getListFavorite(_ completion: @escaping ([FavoriteModel]) -> Void) {

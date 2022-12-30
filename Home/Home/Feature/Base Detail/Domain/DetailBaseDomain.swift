@@ -11,13 +11,14 @@ protocol DetailBaseUseCaseProtocol {
 class DetailBaseInteractor: DetailBaseUseCaseProtocol {
     
     private let repository: DetailBaseRepositoryProtocol
-    private var favoriteRepository: FavoriteListRepository
+    private var favoriteRepository: FavoriteListRepositoryProtocol
     
     required init(
-        repository: DetailBaseRepositoryProtocol
+        repository: DetailBaseRepositoryProtocol,
+        favoriteRepository: FavoriteListRepositoryProtocol
     ) {
         self.repository = repository
-        self.favoriteRepository = FavoriteListRepositoryData()
+        self.favoriteRepository = favoriteRepository
     }
     
     func getDetailMovie(with id: Int, completion: @escaping (Result<DetailBaseModel, Error>) -> Void) {

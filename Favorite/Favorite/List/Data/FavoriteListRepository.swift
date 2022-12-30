@@ -1,22 +1,27 @@
 import Foundation
 
-public protocol FavoriteListRepository {
+public protocol FavoriteListRepositoryProtocol {
     func getAllFavoriteGame(completion: @escaping(_ members: [FavoriteModel]) -> Void)
     func getFavorite(_ id: Int, completion: @escaping(_ bool: Bool) -> Void)
     func addFavorite(_ favoriteModel: FavoriteModel)
     func deleteFavorite(_ id: Int)
 }
 
-public class FavoriteListRepositoryData: FavoriteListRepository {
+public class FavoriteListRepository: NSObject {
+    public typealias FavoriteInstance = (FavoriteLocalDataSource) -> FavoriteListRepository
     
-    private var localData: FavoriteLocal
+    fileprivate let localData: FavoriteLocalDataSource
     
-    public init(
-        localData: FavoriteLocalData = FavoriteLocalData()
-    ) {
+    public init(localData: FavoriteLocalDataSource) {
         self.localData = localData
     }
     
+    public static let sharedInstance: FavoriteInstance = { localRepo in
+        return FavoriteListRepository(localData: localRepo)
+    }
+}
+
+extension FavoriteListRepository: FavoriteListRepositoryProtocol {
     public func getAllFavoriteGame(completion: @escaping ([FavoriteModel]) -> Void) {
         self.localData.getAllFavoriteGame { members in
             completion(members)
@@ -45,3 +50,37 @@ public class FavoriteListRepositoryData: FavoriteListRepository {
         }
     }
 }
+
+//
+//import Foundation
+//
+//protocol DetailBaseRepositoryProtocol {
+//    func getDetailMovie(with id: Int, completion: @escaping (Result<DetailBaseModel, Error>) -> Void)
+//}
+//
+//final class DetailBaseRepository: NSObject {
+//    typealias DetailInstance = (DetailBaseRemoteDataSource) -> DetailBaseRepository
+//
+//    fileprivate let remote: DetailBaseRemoteDataSource
+//
+//    private init(remote: DetailBaseRemoteDataSource) {
+//        self.remote = remote
+//    }
+//
+//    static let sharedInstance: DetailInstance = { remoteRepo in
+//        return DetailBaseRepository(remote: remoteRepo)
+//    }
+//}
+//
+//extension DetailBaseRepository: DetailBaseRepositoryProtocol {
+//    func getDetailMovie(with id: Int, completion: @escaping (Result<DetailBaseModel, Error>) -> Void) {
+//        self.remote.getDetailMovie(with: id) { data in
+//            switch data {
+//            case .success(let data):
+//                completion(.success(data))
+//            case .failure(let error):
+//                completion(.failure(error))
+//            }
+//        }
+//    }
+//}

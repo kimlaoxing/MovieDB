@@ -1,19 +1,21 @@
 import Foundation
 import CoreData
 
-public protocol FavoriteLocal {
+public protocol FavoriteLocalDataSourceProtocol: AnyObject {
     func getAllFavoriteGame(completion: @escaping(_ members: [FavoriteModel]) -> Void)
     func getFavorite(_ id: Int, completion: @escaping(_ bool: Bool) -> Void)
     func addFavorite(_ favoriteModel: FavoriteModel) throws
     func deleteFavorite(_ id: Int) throws
 }
 
-public class FavoriteLocalData: FavoriteLocal {
-
+public class FavoriteLocalDataSource: NSObject, FavoriteLocalDataSourceProtocol {
+    
     let frameworkBundleID   = "com.personal.MovieDB.Favorite"
     let modelName           = "LocalDataSource"
     
-    public init () { }
+    public override init () {}
+    
+    public static let sharedInstance: FavoriteLocalDataSource = FavoriteLocalDataSource()
     
     private lazy var persistentContainer: NSPersistentContainer = {
         let frameworkBundle = Bundle(identifier: self.frameworkBundleID)
