@@ -1,25 +1,27 @@
 import Foundation
 import Favorite
 
-protocol BaseRepository {
+protocol BaseRepositoryProtocol {
     func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (Result<BaseResponse, Error>) -> Void)
 }
 
-final class BaseRepositoryData: BaseRepository {
+final class BaseRepository: NSObject {
+    typealias BaseInstance = (BaseRemoteDataSource) -> BaseRepository
     
-    private var remoteData: BaseRemoteData
-    private var localDataSource: FavoriteLocalData
+    fileprivate let remote: BaseRemoteDataSource
     
-    init(
-        remoteData: BaseRemoteData = BaseRemoteData(),
-        localData: FavoriteLocalData = FavoriteLocalData()
-    ) {
-        self.remoteData = remoteData
-        self.localDataSource = localData
+    private init(remote: BaseRemoteDataSource) {
+        self.remote = remote
     }
     
+    static let sharedInstance: BaseInstance = { remoteRepo in
+        return BaseRepository(remote: remoteRepo)
+    }
+}
+
+extension BaseRepository: BaseRepositoryProtocol {
     func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (Result<BaseResponse, Error>) -> Void) {
-        self.remoteData.getListMovie(with: page, category: category) { data in
+        self.remote.getListMovie(with: page, category: category) { data in
             switch data {
             case .failure(let error):
                 completion(.failure(error))

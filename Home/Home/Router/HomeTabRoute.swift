@@ -5,8 +5,9 @@ import Router
 extension HomeTabRoute where Self: Router {
     public func makeHomeTab() -> UIViewController {
         let router = DefaultRouter(rootTransition: ModalTransition())
+        let useCase = BaseInjection.init().provideBase()
         let vc = BaseViewController()
-        let vm = DefaultBaseViewModel(router: router)
+        let vm = DefaultBaseViewModel(router: router, useCase: useCase)
         vc.viewModel = vm
         vc.navigationItem.backButtonTitle = ""
         router.root = vc
@@ -39,7 +40,8 @@ extension HomeTabRoute where Self: Router {
     func toNowPlayingSection(with transition: Transition) {
         let router = DefaultRouter(rootTransition: transition)
         let vc = ListSectionViewController()
-        let vm = DefaultBaseViewModel(router: router)
+        let useCase = BaseInjection.init().provideBase()
+        let vm = DefaultBaseViewModel(router: router, useCase: useCase)
         vc.viewModel = vm
         vc.category = .nowPlaying
         vc.hidesBottomBarWhenPushed = true
@@ -50,7 +52,8 @@ extension HomeTabRoute where Self: Router {
     func toPopularMovieSection(with transition: Transition) {
         let router = DefaultRouter(rootTransition: transition)
         let vc = ListSectionViewController()
-        let vm = DefaultBaseViewModel(router: router)
+        let useCase = BaseInjection.init().provideBase()
+        let vm = DefaultBaseViewModel(router: router, useCase: useCase)
         vc.viewModel = vm
         vc.category = .popular
         vc.hidesBottomBarWhenPushed = true
@@ -61,7 +64,8 @@ extension HomeTabRoute where Self: Router {
     func toTopRatedSection(with transition: Transition) {
         let router = DefaultRouter(rootTransition: transition)
         let vc = ListSectionViewController()
-        let vm = DefaultBaseViewModel(router: router)
+        let useCase = BaseInjection.init().provideBase()
+        let vm = DefaultBaseViewModel(router: router, useCase: useCase)
         vc.viewModel = vm
         vc.category = .topRated
         vc.hidesBottomBarWhenPushed = true
@@ -72,7 +76,8 @@ extension HomeTabRoute where Self: Router {
     func toPageUpComingSection(with transition: Transition) {
         let router = DefaultRouter(rootTransition: transition)
         let vc = ListSectionViewController()
-        let vm = DefaultBaseViewModel(router: router)
+        let useCase = BaseInjection.init().provideBase()
+        let vm = DefaultBaseViewModel(router: router, useCase: useCase)
         vc.viewModel = vm
         vc.category = .upComing
         vc.hidesBottomBarWhenPushed = true

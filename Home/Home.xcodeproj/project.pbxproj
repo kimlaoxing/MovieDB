@@ -38,6 +38,7 @@
 		EA209B242902944B00412161 /* ListSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B232902944B00412161 /* ListSectionViewController.swift */; };
 		EA209B262902947300412161 /* ListSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B252902947300412161 /* ListSectionTableViewCell.swift */; };
 		EA209B2B2902A15E00412161 /* DetailMovieRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B2A2902A15E00412161 /* DetailMovieRoute.swift */; };
+		EA54FFF0295E9A7600D41289 /* BaseInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA54FFEF295E9A7600D41289 /* BaseInjection.swift */; };
 		EA5D8318294994610054C6C0 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D8317294994610054C6C0 /* ErrorViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		EA209B232902944B00412161 /* ListSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionViewController.swift; sourceTree = "<group>"; };
 		EA209B252902947300412161 /* ListSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionTableViewCell.swift; sourceTree = "<group>"; };
 		EA209B2A2902A15E00412161 /* DetailMovieRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieRoute.swift; sourceTree = "<group>"; };
+		EA54FFEF295E9A7600D41289 /* BaseInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInjection.swift; sourceTree = "<group>"; };
 		EA5D8317294994610054C6C0 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +180,7 @@
 		EA209A8629027AD600412161 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				EA54FFEE295E9A7000D41289 /* DI */,
 				EA209A8A29027AEB00412161 /* Domain */,
 				EA209A8929027AE700412161 /* Data */,
 				EA209A8829027AE200412161 /* Presentation */,
@@ -330,6 +333,14 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		EA54FFEE295E9A7000D41289 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				EA54FFEF295E9A7600D41289 /* BaseInjection.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -444,6 +455,7 @@
 				EA209AB529027C7200412161 /* DetailBaseViewModel.swift in Sources */,
 				EA209AC629027E3A00412161 /* BaseCollectionViewCell.swift in Sources */,
 				EA209AA929027C3900412161 /* DetailBaseButtonMode.swift in Sources */,
+				EA54FFF0295E9A7600D41289 /* BaseInjection.swift in Sources */,
 				EA209A9329027B2700412161 /* BaseViewModel.swift in Sources */,
 				EA209A9129027B1F00412161 /* BaseViewController.swift in Sources */,
 				EA209A8429027AA000412161 /* HomeTabRoute.swift in Sources */,

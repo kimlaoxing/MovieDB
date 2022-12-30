@@ -49,13 +49,16 @@ final class DefaultBaseViewModel: BaseViewModel {
     let isLastPageUpComing: Observable<Bool?> = Observable(false)
     let state: Observable<BaseViewState> = Observable(.loading)
     
-    private let useCase = BaseUseCase()
+    private let useCase: BaseUseCaseProtocol
     
     private let router: Routes
     
     typealias Routes = HomeTabRoute
     
-    init(router: Routes) {
+    init(router: Routes,
+         useCase: BaseUseCaseProtocol
+    ) {
+        self.useCase = useCase
         self.router = router
     }
     

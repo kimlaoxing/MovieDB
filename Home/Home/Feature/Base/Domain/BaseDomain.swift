@@ -1,18 +1,18 @@
 import Foundation
 
-protocol BaseDomain {
-    mutating func getNowPlaying(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void)
-    mutating func getPopular(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void)
-    mutating func getTopRated(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void)
-    mutating func getUpComing(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void)
+protocol BaseUseCaseProtocol {
+   func getNowPlaying(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void)
+   func getPopular(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void)
+   func getTopRated(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void)
+   func getUpComing(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void)
 }
 
-final class BaseUseCase: BaseDomain {
+
+class BaseInteractor: BaseUseCaseProtocol {
+    private let repository: BaseRepositoryProtocol
     
-    private var repository: BaseRepository
-    
-    init() {
-        self.repository = BaseRepositoryData()
+    required init(repository: BaseRepositoryProtocol) {
+        self.repository = repository
     }
     
     func getNowPlaying(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void) {

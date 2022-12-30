@@ -1,13 +1,20 @@
 import Foundation
-import Components
 import Alamofire
+import Components
 
-protocol BaseRemote {
-    mutating func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (Result<BaseResponse, Error>) -> Void)
+protocol BaseRemoteDataSourceProtocol: AnyObject {
+    func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (Result<BaseResponse, Error>) -> Void)
 }
 
-struct BaseRemoteData: BaseRemote {
-    mutating func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (Result<BaseResponse, Error>) -> Void) {
+final class BaseRemoteDataSource: NSObject {
+    private override init () {}
+    
+    static let sharedInstance: BaseRemoteDataSource = BaseRemoteDataSource()
+}
+
+extension BaseRemoteDataSource: BaseRemoteDataSourceProtocol {
+    
+    func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (Result<BaseResponse, Error>) -> Void) {
         let endpoint = "\(APIService.basePath)\(category.rawValue)?api_key=\(APIService.apiKey)"
         let parameters: Parameters = [ "page": "\(page)" ]
         AF.request(endpoint,
