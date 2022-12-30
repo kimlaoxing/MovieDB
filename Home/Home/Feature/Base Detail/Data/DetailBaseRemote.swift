@@ -2,12 +2,18 @@ import Foundation
 import Alamofire
 import Components
 
-protocol DetailBaseRemote {
-    mutating func getDetailMovie(with id: Int, completion: @escaping (DetailBaseModel) -> Void)
+protocol DetailBaseRemoteDataSourceProtocol: AnyObject {
+    func getDetailMovie(with id: Int, completion: @escaping (Result<DetailBaseModel, Error>) -> Void)
 }
 
-struct DetailBaseRemoteData: DetailBaseRemote {
-    mutating func getDetailMovie(with id: Int, completion: @escaping (DetailBaseModel) -> Void) {
+final class DetailBaseRemoteDataSource: NSObject {
+    private override init () {}
+    
+    static let sharedInstance: DetailBaseRemoteDataSource = DetailBaseRemoteDataSource()
+}
+
+extension DetailBaseRemoteDataSource: DetailBaseRemoteDataSourceProtocol {
+    func getDetailMovie(with id: Int, completion: @escaping (Result<DetailBaseModel, Error>) -> Void) {
         let endpoint = "\(APIService.detailBasePath)/\(id)?api_key=\(APIService.apiKey)"
         AF.request(endpoint,
                    method: .get,
@@ -17,9 +23,9 @@ struct DetailBaseRemoteData: DetailBaseRemote {
             .responseDecodable(of: DetailBaseModel.self) { data in
                 switch data.result {
                 case .success(let data):
-                    completion(data)
-                case .failure:
-                    break
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
             }
     }

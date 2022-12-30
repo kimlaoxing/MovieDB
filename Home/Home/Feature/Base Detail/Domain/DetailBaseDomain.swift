@@ -1,26 +1,33 @@
 import Foundation
 import Favorite
 
-protocol DetailBaseDomain {
-    mutating func getDetailMovie(with id: Int, completion: @escaping (DetailBaseModel) -> Void)
-    mutating func addFavorite(_ favoriteModel: FavoriteModel)
-    mutating func deleteFavorite(_ id: Int)
-    mutating func getFavorite(_ id: Int, completion: @escaping(Bool) -> Void)
+protocol DetailBaseUseCaseProtocol {
+  func getDetailMovie(with id: Int, completion: @escaping (Result<DetailBaseModel, Error>) -> Void)
+  func addFavorite(_ favoriteModel: FavoriteModel)
+  func deleteFavorite(_ id: Int)
+  func getFavorite(_ id: Int, completion: @escaping(Bool) -> Void)
 }
 
-final class DetailBaseUseCase: DetailBaseDomain {
+class DetailBaseInteractor: DetailBaseUseCaseProtocol {
     
-    private var repository: DetailBaseRepository
+    private let repository: DetailBaseRepositoryProtocol
     private var favoriteRepository: FavoriteListRepository
     
-    init() {
+    required init(
+        repository: DetailBaseRepositoryProtocol
+    ) {
+        self.repository = repository
         self.favoriteRepository = FavoriteListRepositoryData()
-        self.repository = DetailBaseRepositoryData()
     }
     
-    func getDetailMovie(with id: Int, completion: @escaping (DetailBaseModel) -> Void) {
+    func getDetailMovie(with id: Int, completion: @escaping (Result<DetailBaseModel, Error>) -> Void) {
         self.repository.getDetailMovie(with: id) { data in
-            completion(data)
+            switch data {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let data):
+                completion(.success(data))
+            }
         }
     }
     

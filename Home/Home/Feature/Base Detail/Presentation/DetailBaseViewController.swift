@@ -2,12 +2,14 @@ import Declayout
 import UIKit
 import Favorite
 import Components
+import RxSwift
 
 final class DetailBaseViewController: UIViewController {
     
     var viewModel: DetailBaseViewModel?
     private var data: DetailBaseModel?
     private var favoriteModel: FavoriteModel?
+    let bag = DisposeBag()
     
     private lazy var contentView = DetailBaseView()
     
@@ -36,7 +38,7 @@ final class DetailBaseViewController: UIViewController {
     }
     
     private func bind() {
-        viewModel?.baseDetailModel.observe(on: self) { [weak self] data in
+        viewModel?.baseDetailModel.subscribe(onNext: { [weak self] data in
             guard let self = self, let data = data else { return }
             self.data = data
             self.updateContent(with: data)
@@ -45,15 +47,15 @@ final class DetailBaseViewController: UIViewController {
                                                poster_path: data.poster_path ?? "",
                                                release_date: data.release_date ?? "",
                                                title: data.title ?? "")
-        }
+        }).disposed(by: bag)
         
-        viewModel?.state.observe(on: self) { [weak self] state in
-            self?.handleState(with: state)
-        }
+        viewModel?.state.subscribe(onNext: { [weak self] data in
+            self?.handleState(with: data)
+        }).disposed(by: bag)
         
-        viewModel?.buttonState.observe(on: self) { [weak self] state in
+        viewModel?.buttonState.subscribe(onNext: { [weak self] state in
             self?.setButtonMode(with: state)
-        }
+        }).disposed(by: bag)
     }
     
     private func subViews() {
@@ -91,7 +93,7 @@ final class DetailBaseViewController: UIViewController {
             self.viewModel?.addFavorite(data)
         }
     }
-
+    
     @objc private func deleteButton() {
         if let data = self.favoriteModel {
             self.viewModel?.deleteFavorite(Int(data.id ?? 0))

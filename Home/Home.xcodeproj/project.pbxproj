@@ -37,7 +37,7 @@
 		EA209AC629027E3A00412161 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209AC529027E3A00412161 /* BaseCollectionViewCell.swift */; };
 		EA209B242902944B00412161 /* ListSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B232902944B00412161 /* ListSectionViewController.swift */; };
 		EA209B262902947300412161 /* ListSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B252902947300412161 /* ListSectionTableViewCell.swift */; };
-		EA209B2B2902A15E00412161 /* DetailMovieRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B2A2902A15E00412161 /* DetailMovieRoute.swift */; };
+		EA2FCB85295EC37300E75917 /* BaseDetailInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2FCB84295EC37300E75917 /* BaseDetailInjection.swift */; };
 		EA54FFF0295E9A7600D41289 /* BaseInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA54FFEF295E9A7600D41289 /* BaseInjection.swift */; };
 		EA5D8318294994610054C6C0 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D8317294994610054C6C0 /* ErrorViewController.swift */; };
 /* End PBXBuildFile section */
@@ -89,7 +89,7 @@
 		EA209AC529027E3A00412161 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA209B232902944B00412161 /* ListSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionViewController.swift; sourceTree = "<group>"; };
 		EA209B252902947300412161 /* ListSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionTableViewCell.swift; sourceTree = "<group>"; };
-		EA209B2A2902A15E00412161 /* DetailMovieRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieRoute.swift; sourceTree = "<group>"; };
+		EA2FCB84295EC37300E75917 /* BaseDetailInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDetailInjection.swift; sourceTree = "<group>"; };
 		EA54FFEF295E9A7600D41289 /* BaseInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInjection.swift; sourceTree = "<group>"; };
 		EA5D8317294994610054C6C0 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,7 +191,7 @@
 		EA209A8729027AD900412161 /* Base Detail */ = {
 			isa = PBXGroup;
 			children = (
-				EA209B292902A15600412161 /* Router */,
+				EA2FCB83295EC36700E75917 /* DI */,
 				EA209AA429027C1F00412161 /* Data */,
 				EA209AA229027C1400412161 /* Presentation */,
 				EA209AA129027C1000412161 /* Domain */,
@@ -325,12 +325,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		EA209B292902A15600412161 /* Router */ = {
+		EA2FCB83295EC36700E75917 /* DI */ = {
 			isa = PBXGroup;
 			children = (
-				EA209B2A2902A15E00412161 /* DetailMovieRoute.swift */,
+				EA2FCB84295EC37300E75917 /* BaseDetailInjection.swift */,
 			);
-			path = Router;
+			path = DI;
 			sourceTree = "<group>";
 		};
 		EA54FFEE295E9A7000D41289 /* DI */ = {
@@ -459,9 +459,9 @@
 				EA209A9329027B2700412161 /* BaseViewModel.swift in Sources */,
 				EA209A9129027B1F00412161 /* BaseViewController.swift in Sources */,
 				EA209A8429027AA000412161 /* HomeTabRoute.swift in Sources */,
+				EA2FCB85295EC37300E75917 /* BaseDetailInjection.swift in Sources */,
 				EA209AB329027C6800412161 /* DetailBaseViewController.swift in Sources */,
 				EA209AB129027C5D00412161 /* DetailBaseView.swift in Sources */,
-				EA209B2B2902A15E00412161 /* DetailMovieRoute.swift in Sources */,
 				EA5D8318294994610054C6C0 /* ErrorViewController.swift in Sources */,
 				EA209A9C29027B6900412161 /* BaseRemote.swift in Sources */,
 				EA209A9E29027B7000412161 /* BaseRepository.swift in Sources */,

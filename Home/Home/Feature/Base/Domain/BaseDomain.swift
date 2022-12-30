@@ -7,7 +7,6 @@ protocol BaseUseCaseProtocol {
    func getUpComing(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void)
 }
 
-
 class BaseInteractor: BaseUseCaseProtocol {
     private let repository: BaseRepositoryProtocol
     

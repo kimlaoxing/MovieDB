@@ -1,12 +1,14 @@
 import Declayout
 import UIKit
 import Components
+import RxSwift
 
 final class ListSectionViewController: UIViewController {
     
     var viewModel: BaseViewModel?
     var category: MovieCategory?
     private var data: [BaseResponse.Result]?
+    let bag = DisposeBag()
     
     private lazy var tableView = UITableView.make {
         $0.edges(to: view)
@@ -49,32 +51,32 @@ final class ListSectionViewController: UIViewController {
     private func bind() {
         switch self.category {
         case .nowPlaying:
-            viewModel?.listNowPlaying.observe(on: self) { [weak self] data in
+            viewModel?.listNowPlaying.subscribe(onNext: { [weak self] data in
                 self?.data = data
                 self?.tableView.reloadData()
-            }
+            }).disposed(by: bag)
         case .popular:
-            viewModel?.listPopularMovie.observe(on: self) { [weak self] data in
+            viewModel?.listPopularMovie.subscribe(onNext: { [weak self] data in
                 self?.data = data
                 self?.tableView.reloadData()
-            }
+            }).disposed(by: bag)
         case .topRated:
-            viewModel?.listTopRatedMovie.observe(on: self) { [weak self] data in
+            viewModel?.listTopRatedMovie.subscribe(onNext: { [weak self] data in
                 self?.data = data
                 self?.tableView.reloadData()
-            }
+            }).disposed(by: bag)
         case .upComing:
-            viewModel?.listUpComingMovie.observe(on: self) { [weak self] data in
+            viewModel?.listUpComingMovie.subscribe(onNext: { [weak self] data in
                 self?.data = data
                 self?.tableView.reloadData()
-            }
+            }).disposed(by: bag)
         default:
             break
         }
         
-        viewModel?.state.observe(on: self) { [weak self] data in
+        viewModel?.state.subscribe(onNext: {[weak self] data in
             self?.handleState(with: data)
-        }
+        }).disposed(by: bag)
     }
     
     private func handleState(with state: BaseViewState) {

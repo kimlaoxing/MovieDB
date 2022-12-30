@@ -1,9 +1,11 @@
 import Declayout
 import Components
+import RxSwift
 
 final class BaseViewController: UIViewController {
     
     var viewModel: BaseViewModel?
+    let bag = DisposeBag()
     
     private lazy var scrollView = ScrollViewContainer.make {
         $0.edges(to: view)
@@ -57,25 +59,25 @@ final class BaseViewController: UIViewController {
     }
     
     private func bind() {
-        viewModel?.state.observe(on: self) { [weak self] state in
+        viewModel?.state.subscribe(onNext: { [weak self] state in
             self?.handleState(with: state)
-        }
+        }).disposed(by: bag)
         
-        viewModel?.listNowPlaying.observe(on: self) { _ in
+        viewModel?.listNowPlaying.subscribe({ _ in
             self.nowPlayingCollection.reloadData()
-        }
+        }).disposed(by: bag)
         
-        viewModel?.listPopularMovie.observe(on: self) { _ in
+        viewModel?.listPopularMovie.subscribe({ _ in
             self.popularMovieCollection.reloadData()
-        }
+        }).disposed(by: bag)
         
-        viewModel?.listTopRatedMovie.observe(on: self) { _ in
+        viewModel?.listTopRatedMovie.subscribe({ _ in
             self.topRatedMovieCollection.reloadData()
-        }
+        }).disposed(by: bag)
         
-        viewModel?.listUpComingMovie.observe(on: self) { _ in
+        viewModel?.listUpComingMovie.subscribe({ _ in
             self.upComingMovieCollection.reloadData()
-        }
+        }).disposed(by: bag)
     }
     
     private func subViews() {

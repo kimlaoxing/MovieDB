@@ -11,6 +11,8 @@ pod 'Toast-Swift', '~> 5.0.1'
 pod 'SwiftLint'
 pod 'Declayout'
 pod 'Alamofire'
+pod 'RxSwift', '6.5.0'
+pod 'RxCocoa', '6.5.0'
 end
 
 target 'Router' do

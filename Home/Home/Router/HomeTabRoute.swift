@@ -30,7 +30,8 @@ extension HomeTabRoute where Self: Router {
     func toDetailMove(with transition: Transition, id: Int) {
         let router = DefaultRouter(rootTransition: transition)
         let vc = DetailBaseViewController()
-        let vm = DefaultDetailBaseViewModel(id: id)
+        let useCase = BaseDetailInjection.init().provideDetailBase()
+        let vm = DefaultDetailBaseViewModel(id: id, useCase: useCase, router: router)
         vc.viewModel = vm
         vc.hidesBottomBarWhenPushed = true
         router.root = vc
