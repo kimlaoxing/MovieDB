@@ -8,7 +8,7 @@ final class ListSectionViewController: UIViewController {
     var viewModel: BaseViewModel?
     var category: MovieCategory?
     private var data: [BaseResponse.Result]?
-    let bag = DisposeBag()
+    private let bag = DisposeBag()
     
     private lazy var tableView = UITableView.make {
         $0.edges(to: view)

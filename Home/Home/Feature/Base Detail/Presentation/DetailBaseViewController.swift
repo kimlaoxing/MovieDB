@@ -9,7 +9,7 @@ final class DetailBaseViewController: UIViewController {
     var viewModel: DetailBaseViewModel?
     private var data: DetailBaseModel?
     private var favoriteModel: FavoriteModel?
-    let bag = DisposeBag()
+    private let bag = DisposeBag()
     
     private lazy var contentView = DetailBaseView()
     

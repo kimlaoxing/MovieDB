@@ -1,6 +1,6 @@
 import Foundation
 
-final class BaseDetailInjection: NSObject {
+final class DetailBaseInjection: NSObject {
     
     private func provideRepository() -> DetailBaseRepositoryProtocol {
         let remote: DetailBaseRemoteDataSource = DetailBaseRemoteDataSource.sharedInstance

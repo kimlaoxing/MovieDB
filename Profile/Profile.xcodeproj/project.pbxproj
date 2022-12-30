@@ -180,18 +180,10 @@
 		EA209AEE2902824900412161 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				EA209AEF2902825100412161 /* View */,
 				EA209AFB2902829100412161 /* ProfileEditViewController.swift */,
 				EA209AFD2902829800412161 /* ProfileEditViewModel.swift */,
 			);
 			path = Presentation;
-			sourceTree = "<group>";
-		};
-		EA209AEF2902825100412161 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		EA209AF02902825700412161 /* Model */ = {

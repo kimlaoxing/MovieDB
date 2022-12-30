@@ -5,7 +5,7 @@ import RxSwift
 final class BaseViewController: UIViewController {
     
     var viewModel: BaseViewModel?
-    let bag = DisposeBag()
+    private let bag = DisposeBag()
     
     private lazy var scrollView = ScrollViewContainer.make {
         $0.edges(to: view)
