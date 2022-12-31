@@ -51,8 +51,6 @@ final class DefaultProfileViewViewModel: ProfileViewViewModel {
     func retriveEmail(with forKey: String) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.useCase.retriveEmail(with: forKey) { email in
-//                self.state.value = .normal
-//                self.email.value = email
                 self.state.accept(.normal)
                 self.email.accept(email)
             }
@@ -62,8 +60,6 @@ final class DefaultProfileViewViewModel: ProfileViewViewModel {
     func retriveName(with forKey: String) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.useCase.retriveName(with: forKey) { name in
-//                self.state.value = .normal
-//                self.name.value = name
                 self.state.accept(.normal)
                 self.name.accept(name)
             }
@@ -75,13 +71,10 @@ final class DefaultProfileViewViewModel: ProfileViewViewModel {
     }
     
     func retriveImage() {
-//        self.state.value = .loading
         self.state.accept(.loading)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.useCase.retriveImage { data in
-//                self.state.value = .normal
                 self.state.accept(.normal)
-//                self.image.value = data
                 self.image.accept(data)
             }
         }

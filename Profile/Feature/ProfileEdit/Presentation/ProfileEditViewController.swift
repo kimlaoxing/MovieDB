@@ -2,12 +2,14 @@ import Declayout
 import UIKit
 import Components
 import Router
+import RxSwift
 
 final class ProfileEditViewController: UIViewController {
     
     var viewModel: ProfileEditViewModel?
     var state: ProfileEditState?
     weak var delegate: ProfileEditDelegate?
+    private let bag = DisposeBag()
     
     private lazy var containerView = UIView.make {
         $0.top(to: view, Padding.double + safeAreaInset.top + Padding.half)
@@ -60,15 +62,18 @@ final class ProfileEditViewController: UIViewController {
     }
     
     private func bind() {
-        viewModel?.state.observe(on: self) { [weak self] data in
-            self?.handleState(with: data)
-        }
+        viewModel?.state.subscribe(onNext: { [weak self] data in
+            guard let self = self else { return }
+            self.handleState(with: data)
+            
+        }).disposed(by: bag)
         
-        viewModel?.isDonePost.observe(on: self) { [weak self] isDone in
+        viewModel?.isDonePost.subscribe(onNext: { [weak self] isDone in
+            guard let self = self else { return }
             if isDone {
-                self?.navigationController?.popViewController(animated: true)
+                self.navigationController?.popViewController(animated: true)
             }
-        }
+        }).disposed(by: bag)
     }
     
     private func setContent() {

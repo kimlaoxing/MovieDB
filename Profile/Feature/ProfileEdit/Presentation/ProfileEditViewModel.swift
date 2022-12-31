@@ -1,5 +1,6 @@
 import Foundation
 import Components
+import RxRelay
 
 protocol ProfileEditInput {
     func saveEmail(with email: String)
@@ -7,16 +8,16 @@ protocol ProfileEditInput {
 }
 
 protocol ProfileEditOutput {
-    var state: Observable<BaseViewState> { get }
-    var isDonePost: Observable<Bool> { get }
+    var state: BehaviorRelay<BaseViewState> { get }
+    var isDonePost: BehaviorRelay<Bool> { get }
 }
 
 protocol ProfileEditViewModel: ProfileEditOutput, ProfileEditInput {}
 
 final class DefaultProfileEditViewModel: ProfileEditViewModel {
     
-    let state: Observable<BaseViewState> = Observable(.normal)
-    let isDonePost: Observable<Bool> = Observable(false)
+    let state: BehaviorRelay<BaseViewState> = BehaviorRelay.init(value: .normal)
+    let isDonePost: BehaviorRelay<Bool> = BehaviorRelay.init(value: false)
     
     private let useCase: ProfileEditUseCaseProtocol
     
@@ -25,22 +26,22 @@ final class DefaultProfileEditViewModel: ProfileEditViewModel {
     }
     
     func saveEmail(with email: String) {
-        self.state.value = .loading
+        self.state.accept(.loading)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             let forKey = ProfileEditForkey.email
             self.useCase.saveName(with: email, forKey: forKey)
-            self.state.value = .normal
-            self.isDonePost.value = true
+            self.state.accept(.normal)
+            self.isDonePost.accept(true)
         }
     }
     
     func saveName(with name: String) {
-        self.state.value = .loading
+        self.state.accept(.loading)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             let forKey = ProfileEditForkey.name
             self.useCase.saveName(with: name, forKey: forKey)
-            self.state.value = .normal
-            self.isDonePost.value = true
+            self.state.accept(.normal)
+            self.isDonePost.accept(true)
         }
     }
 }
