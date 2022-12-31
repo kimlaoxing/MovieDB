@@ -29,7 +29,7 @@ extension ProfileEditLocalDataSource: ProfileEditLocalDataSourceProtocol {
         if let data = UserDefaults.standard.string(forKey: forKey) {
             completion(data)
         } else {
-            completion("UnRegist")
+            completion("kimlaoxing@gmail.com")
         }
     }
     
@@ -37,7 +37,7 @@ extension ProfileEditLocalDataSource: ProfileEditLocalDataSourceProtocol {
         if let data = UserDefaults.standard.string(forKey: forKey) {
             completion(data)
         } else {
-            completion("UnRegist")
+            completion("Kevin Maulana")
         }
     }
     
@@ -54,7 +54,7 @@ extension ProfileEditLocalDataSource: ProfileEditLocalDataSourceProtocol {
                 completion(image)
             }
         } else {
-            let image = UIImage(systemName: "house.circle.fill")
+            let image = Resources.imageAssets("profileImage")
             completion(image ?? UIImage())
         }
     }

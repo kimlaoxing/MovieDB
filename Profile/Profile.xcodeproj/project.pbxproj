@@ -29,6 +29,9 @@
 		EA209B1E290286AD00412161 /* Router.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EA209B1C290286AD00412161 /* Router.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EA611F56295FE4A2009E6C5D /* ProfileEditInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA611F55295FE4A2009E6C5D /* ProfileEditInjection.swift */; };
 		EA611F59295FEAA5009E6C5D /* ProfileViewInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA611F58295FEAA5009E6C5D /* ProfileViewInjection.swift */; };
+		EA611F5C295FEE6B009E6C5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA611F5B295FEE6B009E6C5D /* Assets.xcassets */; };
+		EA611F5F295FEE98009E6C5D /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA611F5E295FEE98009E6C5D /* Resources.swift */; };
+		EA611F61295FEEAB009E6C5D /* AppsLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA611F60295FEEAB009E6C5D /* AppsLanguage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +72,9 @@
 		EA209B1C290286AD00412161 /* Router.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Router.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA611F55295FE4A2009E6C5D /* ProfileEditInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditInjection.swift; sourceTree = "<group>"; };
 		EA611F58295FEAA5009E6C5D /* ProfileViewInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewInjection.swift; sourceTree = "<group>"; };
+		EA611F5B295FEE6B009E6C5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EA611F5E295FEE98009E6C5D /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		EA611F60295FEEAB009E6C5D /* AppsLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsLanguage.swift; sourceTree = "<group>"; };
 		F151756955CDCD8EA21E684B /* Pods-Profile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Profile.debug.xcconfig"; path = "Target Support Files/Pods-Profile/Pods-Profile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +115,8 @@
 		EA209AD2290281C800412161 = {
 			isa = PBXGroup;
 			children = (
+				EA611F5D295FEE91009E6C5D /* Helper */,
+				EA611F5A295FEE5B009E6C5D /* Assets */,
 				EA209B06290283D400412161 /* Router */,
 				EA209AE6290281FA00412161 /* Feature */,
 				EA209ADE290281C800412161 /* Profile */,
@@ -268,6 +276,23 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		EA611F5A295FEE5B009E6C5D /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				EA611F5B295FEE6B009E6C5D /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		EA611F5D295FEE91009E6C5D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				EA611F5E295FEE98009E6C5D /* Resources.swift */,
+				EA611F60295FEEAB009E6C5D /* AppsLanguage.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -340,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA611F5C295FEE6B009E6C5D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,8 +408,10 @@
 				EA611F59295FEAA5009E6C5D /* ProfileViewInjection.swift in Sources */,
 				EA209B0A2902840900412161 /* ProfileViewController.swift in Sources */,
 				EA209AF82902827D00412161 /* ProfileEditLocalData.swift in Sources */,
+				EA611F61295FEEAB009E6C5D /* AppsLanguage.swift in Sources */,
 				EA209AF22902826300412161 /* ProfileEditForkey.swift in Sources */,
 				EA209AFE2902829800412161 /* ProfileEditViewModel.swift in Sources */,
+				EA611F5F295FEE98009E6C5D /* Resources.swift in Sources */,
 				EA209AFA2902828600412161 /* ProfileEditRepository.swift in Sources */,
 				EA209B0C2902841200412161 /* ProfileViewViewModel.swift in Sources */,
 				EA209AFC2902829100412161 /* ProfileEditViewController.swift in Sources */,
