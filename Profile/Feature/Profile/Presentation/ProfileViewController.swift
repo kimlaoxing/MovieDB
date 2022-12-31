@@ -2,12 +2,14 @@ import Declayout
 import UIKit
 import Components
 import Router
+import RxSwift
 
 final class ProfileViewController: UIViewController {
     
     var viewModel: ProfileViewViewModel?
     private var contentView = ProfileViewHeader()
     private var imagePicker = UIImagePickerController()
+    private let bag = DisposeBag()
     
     private lazy var scrollView = ScrollViewContainer.make {
         $0.setSpacingBetweenItems(to: 4)
@@ -35,21 +37,25 @@ final class ProfileViewController: UIViewController {
     }
     
     private func bind() {
-        self.viewModel?.email.observe(on: self) { [weak self] data in
-            self?.setContentMail(with: data)
-        }
+        self.viewModel?.email.subscribe(onNext: { [weak self] data in
+            guard let self = self else { return }
+            self.setContentMail(with: data)
+        }).disposed(by: bag)
         
-        self.viewModel?.name.observe(on: self) { [weak self] data in
-            self?.setContentName(with: data)
-        }
+        self.viewModel?.name.subscribe(onNext: { [weak self] data in
+            guard let self = self else { return }
+            self.setContentName(with: data)
+        }).disposed(by: bag)
         
-        self.viewModel?.state.observe(on: self) { [weak self] data in
-            self?.handleState(with: data)
-        }
+        self.viewModel?.state.subscribe(onNext: { [weak self] data in
+            guard let self = self else { return }
+            self.handleState(with: data)
+        }).disposed(by: bag)
         
-        self.viewModel?.image.observe(on: self) { [weak self] data in
-            self?.setContentProfile(with: data)
-        }
+        self.viewModel?.image.subscribe(onNext: { [weak self] data in
+            guard let self = self else { return }
+            self.setContentProfile(with: data)
+        }).disposed(by: bag)
     }
     
     private func handleState(with state: BaseViewState) {
