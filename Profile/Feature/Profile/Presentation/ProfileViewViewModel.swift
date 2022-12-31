@@ -29,18 +29,22 @@ final class DefaultProfileViewViewModel: ProfileViewViewModel {
     let email: Observable<String> = Observable("")
     let state: Observable<BaseViewState> = Observable(.loading)
     
-    private let useCase = ProfileViewUseCase()
+    private let useCase: ProfileViewUseCaseProtocol
     private let router: Routes
     
     typealias Routes = ProfileTabRoute
     
-    init(router: Routes) {
+    init(router: Routes,
+         useCase: ProfileViewUseCaseProtocol
+    ) {
         self.router = router
+        self.useCase = useCase
     }
     
     func viewDidLoad() {
         self.retriveEmail(with: ProfileEditForkey.email)
         self.retriveName(with: ProfileEditForkey.name)
+        self.retriveImage()
     }
     
     func retriveEmail(with forKey: String) {

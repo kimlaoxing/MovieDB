@@ -18,7 +18,11 @@ final class DefaultProfileEditViewModel: ProfileEditViewModel {
     let state: Observable<BaseViewState> = Observable(.normal)
     let isDonePost: Observable<Bool> = Observable(false)
     
-    private let useCase = ProfileEditUseCase()
+    private let useCase: ProfileEditUseCaseProtocol
+    
+    init(useCase: ProfileEditUseCaseProtocol) {
+        self.useCase = useCase
+    }
     
     func saveEmail(with email: String) {
         self.state.value = .loading

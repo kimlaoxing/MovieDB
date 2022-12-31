@@ -5,7 +5,7 @@ import Router
 
 final class ProfileEditViewController: UIViewController {
     
-    private var viewModel: ProfileEditViewModel = DefaultProfileEditViewModel()
+    var viewModel: ProfileEditViewModel?
     var state: ProfileEditState?
     weak var delegate: ProfileEditDelegate?
     
@@ -60,11 +60,11 @@ final class ProfileEditViewController: UIViewController {
     }
     
     private func bind() {
-        viewModel.state.observe(on: self) { [weak self] data in
+        viewModel?.state.observe(on: self) { [weak self] data in
             self?.handleState(with: data)
         }
         
-        viewModel.isDonePost.observe(on: self) { [weak self] isDone in
+        viewModel?.isDonePost.observe(on: self) { [weak self] isDone in
             if isDone {
                 self?.navigationController?.popViewController(animated: true)
             }
@@ -116,10 +116,10 @@ extension ProfileEditViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch state {
         case .email:
-            self.viewModel.saveEmail(with: textField.text ?? "-")
+            self.viewModel?.saveEmail(with: textField.text ?? "-")
             self.delegate?.getEmail()
         case .name:
-            self.viewModel.saveName(with: textField.text ?? "-")
+            self.viewModel?.saveName(with: textField.text ?? "-")
             self.delegate?.getName()
         default:
             break

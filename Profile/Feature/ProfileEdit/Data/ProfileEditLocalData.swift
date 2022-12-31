@@ -1,17 +1,22 @@
 import Foundation
 import UIKit
 
-protocol ProfileEditLocal {
-    mutating func saveEmail(with email: String, forKey: String)
-    mutating func saveName(with name: String, forKey: String)
-    mutating func retriveEmail(with forKey: String, completion: @escaping(String) -> Void)
-    mutating func retriveName(with forKey: String, completion: @escaping(String) -> Void)
-    mutating func saveImage(with image: UIImage)
-    mutating func retriveImage(_ completion: @escaping(UIImage) -> Void)
+protocol ProfileEditLocalDataSourceProtocol: AnyObject {
+   func saveEmail(with email: String, forKey: String)
+   func saveName(with name: String, forKey: String)
+   func retriveEmail(with forKey: String, completion: @escaping(String) -> Void)
+   func retriveName(with forKey: String, completion: @escaping(String) -> Void)
+   func saveImage(with image: UIImage)
+   func retriveImage(_ completion: @escaping(UIImage) -> Void)
 }
 
-struct ProfileEditLocalData: ProfileEditLocal {
+final class ProfileEditLocalDataSource: NSObject {
+    private override init () {}
     
+    static let sharedInstance: ProfileEditLocalDataSource = ProfileEditLocalDataSource()
+}
+
+extension ProfileEditLocalDataSource: ProfileEditLocalDataSourceProtocol {
     func saveEmail(with email: String, forKey: String) {
         UserDefaults.standard.set(email, forKey: forKey)
     }

@@ -27,6 +27,8 @@
 		EA209B1A290286A600412161 /* Components.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EA209B18290286A600412161 /* Components.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EA209B1D290286AD00412161 /* Router.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA209B1C290286AD00412161 /* Router.framework */; };
 		EA209B1E290286AD00412161 /* Router.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EA209B1C290286AD00412161 /* Router.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EA611F56295FE4A2009E6C5D /* ProfileEditInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA611F55295FE4A2009E6C5D /* ProfileEditInjection.swift */; };
+		EA611F59295FEAA5009E6C5D /* ProfileViewInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA611F58295FEAA5009E6C5D /* ProfileViewInjection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +67,8 @@
 		EA209B11290285B200412161 /* ProfileViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewHeader.swift; sourceTree = "<group>"; };
 		EA209B18290286A600412161 /* Components.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Components.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA209B1C290286AD00412161 /* Router.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Router.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA611F55295FE4A2009E6C5D /* ProfileEditInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditInjection.swift; sourceTree = "<group>"; };
+		EA611F58295FEAA5009E6C5D /* ProfileViewInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewInjection.swift; sourceTree = "<group>"; };
 		F151756955CDCD8EA21E684B /* Pods-Profile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Profile.debug.xcconfig"; path = "Target Support Files/Pods-Profile/Pods-Profile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +146,7 @@
 		EA209AE82902821400412161 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				EA611F57295FEA97009E6C5D /* DI */,
 				EA209B03290283BB00412161 /* Domain */,
 				EA209B02290283B700412161 /* Data */,
 				EA209B012902838900412161 /* Presentation */,
@@ -152,6 +157,7 @@
 		EA209AE92902821C00412161 /* ProfileEdit */ = {
 			isa = PBXGroup;
 			children = (
+				EA611F54295FE492009E6C5D /* DI */,
 				EA209AEE2902824900412161 /* Presentation */,
 				EA209AED2902824500412161 /* Domain */,
 				EA209AEC2902824100412161 /* Data */,
@@ -244,6 +250,22 @@
 				EA209B07290283F000412161 /* ProfileRoute.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		EA611F54295FE492009E6C5D /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				EA611F55295FE4A2009E6C5D /* ProfileEditInjection.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		EA611F57295FEA97009E6C5D /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				EA611F58295FEAA5009E6C5D /* ProfileViewInjection.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,8 +376,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA209AF42902826B00412161 /* ProfileEditDelegate.swift in Sources */,
+				EA611F56295FE4A2009E6C5D /* ProfileEditInjection.swift in Sources */,
 				EA209B00290282A700412161 /* ProfileEditDomain.swift in Sources */,
 				EA209B0E2902841D00412161 /* ProfileViewForKey.swift in Sources */,
+				EA611F59295FEAA5009E6C5D /* ProfileViewInjection.swift in Sources */,
 				EA209B0A2902840900412161 /* ProfileViewController.swift in Sources */,
 				EA209AF82902827D00412161 /* ProfileEditLocalData.swift in Sources */,
 				EA209AF22902826300412161 /* ProfileEditForkey.swift in Sources */,

@@ -23,10 +23,6 @@ final class ProfileViewController: UIViewController {
         viewModel?.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        viewModel?.retriveImage()
-    }
-    
     private func subViews() {
         title = "Profile"
         view.backgroundColor = .clear
@@ -140,8 +136,11 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [ UIImagePickerController.InfoKey: Any ]) {
         if let pickedImage = info[.editedImage] as? UIImage {
-            viewModel?.saveImage(with: pickedImage)
-            picker.dismiss(animated: true, completion: nil)
+            DispatchQueue.main.async {
+                self.viewModel?.saveImage(with: pickedImage)
+                self.viewModel?.retriveImage()
+                picker.dismiss(animated: true, completion: nil)
+            }
         }
     }
 }

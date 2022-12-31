@@ -6,7 +6,8 @@ extension ProfileTabRoute where Self: Router {
     public func makeProfileTab() -> UIViewController {
         let router = DefaultRouter(rootTransition: ModalTransition())
         let vc = ProfileViewController()
-        let vm = DefaultProfileViewViewModel(router: router)
+        let useCase = ProfileViewInjection.init().provideProfileView()
+        let vm = DefaultProfileViewViewModel(router: router, useCase: useCase)
         vc.viewModel = vm
         vc.navigationItem.backButtonTitle = ""
         router.root = vc
@@ -27,7 +28,10 @@ extension ProfileTabRoute where Self: Router {
     }
     func toEditName(with transition: Transition, delegate: ProfileEditDelegate) {
         let router = DefaultRouter(rootTransition: transition)
+        let useCase = ProfileEditInjection.init().provideProfileEdit()
         let vc = ProfileEditViewController()
+        let vm = DefaultProfileEditViewModel(useCase: useCase)
+        vc.viewModel = vm
         vc.state = .name
         vc.delegate = delegate
         vc.hidesBottomBarWhenPushed = true
@@ -37,8 +41,10 @@ extension ProfileTabRoute where Self: Router {
     
     func toEditEmail(with transition: Transition, delegate: ProfileEditDelegate) {
         let router = DefaultRouter(rootTransition: transition)
+        let useCase = ProfileEditInjection.init().provideProfileEdit()
         let vc = ProfileEditViewController()
-        vc.state = .email
+        let vm = DefaultProfileEditViewModel(useCase: useCase)
+        vc.viewModel = vm
         vc.state = .email
         vc.delegate = delegate
         vc.hidesBottomBarWhenPushed = true

@@ -1,16 +1,17 @@
 import Foundation
 
-protocol ProfileEditDomain {
-    mutating func saveEmail(with email: String, forKey: String)
-    mutating func saveName(with name: String, forKey: String)
+protocol ProfileEditUseCaseProtocol {
+   func saveEmail(with email: String, forKey: String)
+   func saveName(with name: String, forKey: String)
 }
 
-final class ProfileEditUseCase: ProfileEditDomain {
+final class ProfileEditInteractor: ProfileEditUseCaseProtocol {
+    private let repository: ProfileEditRepositoryProtocol
     
-    private var repository: ProfileEditRepository
-    
-    init() {
-        self.repository = ProfileEditRepositoryData()
+    required init(
+        repository: ProfileEditRepositoryProtocol
+    ) {
+        self.repository = repository
     }
     
     func saveEmail(with email: String, forKey: String) {

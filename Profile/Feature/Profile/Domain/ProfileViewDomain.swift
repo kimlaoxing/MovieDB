@@ -1,19 +1,20 @@
 import Foundation
 import UIKit
 
-protocol ProfileViewDomain {
-    mutating func retriveEmail(with forKey: String, completion: @escaping(String) -> Void)
-    mutating func retriveName(with forKey: String, completion: @escaping(String) -> Void)
-    mutating func saveImage(with image: UIImage)
-    mutating func retriveImage(_ completion: @escaping(UIImage) -> Void)
+protocol ProfileViewUseCaseProtocol {
+    func retriveEmail(with forKey: String, completion: @escaping(String) -> Void)
+    func retriveName(with forKey: String, completion: @escaping(String) -> Void)
+    func saveImage(with image: UIImage)
+    func retriveImage(_ completion: @escaping(UIImage) -> Void)
 }
 
-final class ProfileViewUseCase: ProfileViewDomain {
+final class ProfileViewInteractor: ProfileViewUseCaseProtocol {
+    private let repository: ProfileEditRepositoryProtocol
     
-    private var repository: ProfileEditRepository
-    
-    init() {
-        self.repository = ProfileEditRepositoryData()
+    required init(
+        repository: ProfileEditRepositoryProtocol
+    ) {
+        self.repository = repository
     }
     
     func retriveEmail(with forKey: String, completion: @escaping (String) -> Void) {
@@ -38,3 +39,26 @@ final class ProfileViewUseCase: ProfileViewDomain {
         }
     }
 }
+//
+//protocol ProfileEditUseCaseProtocol {
+//   func saveEmail(with email: String, forKey: String)
+//   func saveName(with name: String, forKey: String)
+//}
+//
+//final class ProfileEditInteractor: ProfileEditUseCaseProtocol {
+//    private let repository: ProfileEditRepositoryProtocol
+//
+//    required init(
+//        repository: ProfileEditRepositoryProtocol
+//    ) {
+//        self.repository = repository
+//    }
+//
+//    func saveEmail(with email: String, forKey: String) {
+//        self.repository.saveEmail(with: email, forKey: forKey)
+//    }
+//
+//    func saveName(with name: String, forKey: String) {
+//        self.repository.saveName(with: name, forKey: forKey)
+//    }
+//}
