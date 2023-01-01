@@ -100,18 +100,18 @@ final class BaseTableViewCell: UITableViewCell {
         ])
     }
     
-    func setContent(with data: BaseResponse.Result) {
-        self.title.text = data.title ?? ""
-        self.backgroundImage.downloaded(from: data.poster_path ?? "")
+    func setContent(with data: BaseResult) {
+        self.title.text = data.title
+        self.backgroundImage.downloaded(from: data.poster_path)
         self.releaseDateTitle.text = "Release Date"
-        self.releaseDateValue.text = data.release_date ?? ""
+        self.releaseDateValue.text = data.release_date
         self.ratinImage.image = UIImage(systemName: "star.fill")
         self.ratinImage.tintColor = .black
         self.ratingLabel.text = "\(convertPopularity(with: data))"
     }
     
-    private func convertPopularity(with data: BaseResponse.Result) -> Int {
-        let popular = (data.popularity ?? 0) / 100
+    private func convertPopularity(with data: BaseResult) -> Int {
+        let popular = (data.popularity) / 100
         let result = Int(popular)
         return result
     }

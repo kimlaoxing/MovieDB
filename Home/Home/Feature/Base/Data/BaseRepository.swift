@@ -2,7 +2,7 @@ import Foundation
 import Favorite
 
 protocol BaseRepositoryProtocol {
-    func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (Result<BaseResponse, Error>) -> Void)
+    func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (Result<[BaseResult], Error>) -> Void)
 }
 
 final class BaseRepository: NSObject {
@@ -20,14 +20,15 @@ final class BaseRepository: NSObject {
 }
 
 extension BaseRepository: BaseRepositoryProtocol {
-    func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (Result<BaseResponse, Error>) -> Void) {
+    func getListMovie(with page: Int, category: MovieCategory, completion: @escaping (Result<[BaseResult], Error>) -> Void) {
         self.remote.getListMovie(with: page, category: category) { data in
             switch data {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let data):
-                completion(.success(data))
+                completion(.success(BaseResponseMapper.baseResponseMapper(result: data.results ?? [], response: data)))
             }
         }
     }
 }
+

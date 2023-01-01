@@ -1,10 +1,10 @@
 import Foundation
 
 protocol BaseUseCaseProtocol {
-   func getNowPlaying(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void)
-   func getPopular(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void)
-   func getTopRated(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void)
-   func getUpComing(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void)
+   func getNowPlaying(with page: Int, completion: @escaping (Result<[BaseResult], Error>) -> Void)
+   func getPopular(with page: Int, completion: @escaping (Result<[BaseResult], Error>) -> Void)
+   func getTopRated(with page: Int, completion: @escaping (Result<[BaseResult], Error>) -> Void)
+   func getUpComing(with page: Int, completion: @escaping (Result<[BaseResult], Error>) -> Void)
 }
 
 class BaseInteractor: BaseUseCaseProtocol {
@@ -14,7 +14,7 @@ class BaseInteractor: BaseUseCaseProtocol {
         self.repository = repository
     }
     
-    func getNowPlaying(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void) {
+    func getNowPlaying(with page: Int, completion: @escaping (Result<[BaseResult], Error>) -> Void) {
         self.repository.getListMovie(with: page, category: .nowPlaying) { data in
             switch data {
             case .failure(let error):
@@ -25,7 +25,7 @@ class BaseInteractor: BaseUseCaseProtocol {
         }
     }
     
-    func getPopular(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void) {
+    func getPopular(with page: Int, completion: @escaping (Result<[BaseResult], Error>) -> Void) {
         self.repository.getListMovie(with: page, category: .popular) { data in
             switch data {
             case .failure(let error):
@@ -36,7 +36,7 @@ class BaseInteractor: BaseUseCaseProtocol {
         }
     }
     
-    func getTopRated(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void) {
+    func getTopRated(with page: Int, completion: @escaping (Result<[BaseResult], Error>) -> Void) {
         self.repository.getListMovie(with: page, category: .topRated) { data in
             switch data {
             case .failure(let error):
@@ -47,7 +47,7 @@ class BaseInteractor: BaseUseCaseProtocol {
         }
     }
     
-    func getUpComing(with page: Int, completion: @escaping (Result<BaseResponse, Error>) -> Void) {
+    func getUpComing(with page: Int, completion: @escaping (Result<[BaseResult], Error>) -> Void) {
         self.repository.getListMovie(with: page, category: .upComing) { data in
             switch data {
             case .failure(let error):

@@ -38,6 +38,8 @@
 		EA209B242902944B00412161 /* ListSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B232902944B00412161 /* ListSectionViewController.swift */; };
 		EA209B262902947300412161 /* ListSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B252902947300412161 /* ListSectionTableViewCell.swift */; };
 		EA2FCB85295EC37300E75917 /* DetailBaseInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2FCB84295EC37300E75917 /* DetailBaseInjection.swift */; };
+		EA4BB58A29617C0E00BCA8C2 /* BaseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4BB58929617C0E00BCA8C2 /* BaseResult.swift */; };
+		EA4BB58D29617F1800BCA8C2 /* BaseResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4BB58C29617F1800BCA8C2 /* BaseResponseMapper.swift */; };
 		EA54FFF0295E9A7600D41289 /* BaseInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA54FFEF295E9A7600D41289 /* BaseInjection.swift */; };
 		EA5D8318294994610054C6C0 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D8317294994610054C6C0 /* ErrorViewController.swift */; };
 /* End PBXBuildFile section */
@@ -90,6 +92,8 @@
 		EA209B232902944B00412161 /* ListSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionViewController.swift; sourceTree = "<group>"; };
 		EA209B252902947300412161 /* ListSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionTableViewCell.swift; sourceTree = "<group>"; };
 		EA2FCB84295EC37300E75917 /* DetailBaseInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBaseInjection.swift; sourceTree = "<group>"; };
+		EA4BB58929617C0E00BCA8C2 /* BaseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResult.swift; sourceTree = "<group>"; };
+		EA4BB58C29617F1800BCA8C2 /* BaseResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponseMapper.swift; sourceTree = "<group>"; };
 		EA54FFEF295E9A7600D41289 /* BaseInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInjection.swift; sourceTree = "<group>"; };
 		EA5D8317294994610054C6C0 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +184,7 @@
 		EA209A8629027AD600412161 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				EA4BB58B29617F0600BCA8C2 /* Utils */,
 				EA54FFEE295E9A7000D41289 /* DI */,
 				EA209A8A29027AEB00412161 /* Domain */,
 				EA209A8929027AE700412161 /* Data */,
@@ -222,7 +227,8 @@
 		EA209A8A29027AEB00412161 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				EA209A9F29027BC500412161 /* BaseDomain.swift */,
+				EA4BB58829617BF600BCA8C2 /* UseCase */,
+				EA4BB58729617BF300BCA8C2 /* Data */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -331,6 +337,30 @@
 				EA2FCB84295EC37300E75917 /* DetailBaseInjection.swift */,
 			);
 			path = DI;
+			sourceTree = "<group>";
+		};
+		EA4BB58729617BF300BCA8C2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EA4BB58929617C0E00BCA8C2 /* BaseResult.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EA4BB58829617BF600BCA8C2 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				EA209A9F29027BC500412161 /* BaseDomain.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		EA4BB58B29617F0600BCA8C2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EA4BB58C29617F1800BCA8C2 /* BaseResponseMapper.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		EA54FFEE295E9A7000D41289 /* DI */ = {
@@ -461,10 +491,12 @@
 				EA209A8429027AA000412161 /* HomeTabRoute.swift in Sources */,
 				EA2FCB85295EC37300E75917 /* DetailBaseInjection.swift in Sources */,
 				EA209AB329027C6800412161 /* DetailBaseViewController.swift in Sources */,
+				EA4BB58D29617F1800BCA8C2 /* BaseResponseMapper.swift in Sources */,
 				EA209AB129027C5D00412161 /* DetailBaseView.swift in Sources */,
 				EA5D8318294994610054C6C0 /* ErrorViewController.swift in Sources */,
 				EA209A9C29027B6900412161 /* BaseRemote.swift in Sources */,
 				EA209A9E29027B7000412161 /* BaseRepository.swift in Sources */,
+				EA4BB58A29617C0E00BCA8C2 /* BaseResult.swift in Sources */,
 				EA209AAF29027C5300412161 /* DetailBaseDomain.swift in Sources */,
 				EA209B262902947300412161 /* ListSectionTableViewCell.swift in Sources */,
 				EA209AA029027BC500412161 /* BaseDomain.swift in Sources */,

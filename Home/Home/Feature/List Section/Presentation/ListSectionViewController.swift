@@ -7,7 +7,7 @@ final class ListSectionViewController: UIViewController {
     
     var viewModel: BaseViewModel?
     var category: MovieCategory?
-    private var data: [BaseResponse.Result]?
+    private var data: [BaseResult]?
     private let bag = DisposeBag()
     
     private lazy var tableView = UITableView.make {

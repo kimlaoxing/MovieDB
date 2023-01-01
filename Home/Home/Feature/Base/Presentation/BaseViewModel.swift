@@ -22,10 +22,10 @@ protocol BaseViewModelOutput {
 }
 
 protocol BaseViewModelInput {
-    var listNowPlaying: BehaviorRelay<[BaseResponse.Result]> { get }
-    var listPopularMovie: BehaviorRelay<[BaseResponse.Result]> { get }
-    var listTopRatedMovie: BehaviorRelay<[BaseResponse.Result]> { get }
-    var listUpComingMovie: BehaviorRelay<[BaseResponse.Result]> { get }
+    var listNowPlaying: BehaviorRelay<[BaseResult]> { get }
+    var listPopularMovie: BehaviorRelay<[BaseResult]> { get }
+    var listTopRatedMovie: BehaviorRelay<[BaseResult]> { get }
+    var listUpComingMovie: BehaviorRelay<[BaseResult]> { get }
     var isLastPageNowPlaying: BehaviorRelay<Bool?> { get }
     var isLastPopularMovie: BehaviorRelay<Bool?> { get }
     var isLastPageTopRatedMovie: BehaviorRelay<Bool?> { get }
@@ -38,10 +38,10 @@ protocol BaseViewModel: BaseViewModelOutput, BaseViewModelInput { }
 
 final class DefaultBaseViewModel: BaseViewModel {
     
-    let listNowPlaying: BehaviorRelay<[BaseResponse.Result]> = BehaviorRelay.init(value: [])
-    let listPopularMovie: BehaviorRelay<[BaseResponse.Result]> = BehaviorRelay.init(value: [])
-    let listTopRatedMovie: BehaviorRelay<[BaseResponse.Result]> = BehaviorRelay.init(value: [])
-    let listUpComingMovie: BehaviorRelay<[BaseResponse.Result]> = BehaviorRelay.init(value: [])
+    let listNowPlaying: BehaviorRelay<[BaseResult]> = BehaviorRelay.init(value: [])
+    let listPopularMovie: BehaviorRelay<[BaseResult]> = BehaviorRelay.init(value: [])
+    let listTopRatedMovie: BehaviorRelay<[BaseResult]> = BehaviorRelay.init(value: [])
+    let listUpComingMovie: BehaviorRelay<[BaseResult]> = BehaviorRelay.init(value: [])
     let error: BehaviorRelay<String> = BehaviorRelay.init(value: "")
     
     let isLastPageNowPlaying: BehaviorRelay<Bool?> = BehaviorRelay.init(value: false)
@@ -167,20 +167,20 @@ extension DefaultBaseViewModel {
                 self.error.accept("\(error)")
                 self.popUpError()
             case .success(let data):
-                self.totalPageNowPlaying = data.total_pages ?? 0
+                self.totalPageNowPlaying = data[0].total_pages
                 if self.pageNowPlaying == 1 {
 //                    self.isLastPageNowPlaying.value = self.pageNowPlaying == self.totalPageNowPlaying
                     self.isLastPageNowPlaying.accept(self.pageNowPlaying == self.totalPageNowPlaying)
                     self.pageNowPlaying += 1
 //                    self.listNowPlaying.value = data.results ?? []
-                    self.listNowPlaying.accept(data.results ?? [])
+                    self.listNowPlaying.accept(data)
                 } else {
 //                    self.isLastPageNowPlaying.value = self.pageNowPlaying == self.totalPageNowPlaying
                     self.isLastPageNowPlaying.accept(self.pageNowPlaying == self.totalPageNowPlaying)
                     self.pageNowPlaying += 1
-                    var newData: [BaseResponse.Result] = []
+                    var newData: [BaseResult] = []
                     newData.append(contentsOf: self.listNowPlaying.value)
-                    newData.append(contentsOf: data.results ?? [])
+                    newData.append(contentsOf: data)
                     self.listNowPlaying.accept(newData)
                 }
 //                self.state.value = .normal
@@ -195,20 +195,20 @@ extension DefaultBaseViewModel {
         self.useCase.getPopular(with: self.pagePopularMovie) { data in
             switch data {
             case .success(let data):
-                self.totalPagePopularMovie = data.total_results ?? 0
+                self.totalPagePopularMovie = data[0].total_pages
                 if self.pagePopularMovie == 1 {
 //                    self.isLastPopularMovie.value = self.pagePopularMovie == self.totalPagePopularMovie
                     self.isLastPopularMovie.accept(self.pagePopularMovie == self.totalPagePopularMovie)
                     self.pagePopularMovie += 1
 //                    self.listPopularMovie.value = data.results ?? []
-                    self.listPopularMovie.accept(data.results ?? [])
+                    self.listPopularMovie.accept(data)
                 } else {
 //                    self.isLastPopularMovie.value = self.pagePopularMovie == self.totalPagePopularMovie
                     self.isLastPopularMovie.accept(self.pagePopularMovie == self.totalPagePopularMovie)
                     self.pagePopularMovie += 1
-                    var newData: [BaseResponse.Result] = []
+                    var newData: [BaseResult] = []
                     newData.append(contentsOf: self.listPopularMovie.value)
-                    newData.append(contentsOf: data.results ?? [])
+                    newData.append(contentsOf: data)
 //                    self.listPopularMovie.value = newData
                     self.listPopularMovie.accept(newData)
                 }
@@ -232,20 +232,20 @@ extension DefaultBaseViewModel {
                 self.error.accept("\(error)")
                 self.popUpError()
             case .success(let data):
-                self.totalPageTopRated = data.total_results ?? 0
+                self.totalPageTopRated = data[0].total_pages
                 if self.pageTopRated == 1 {
 //                    self.isLastPageTopRatedMovie.value = self.pageTopRated == self.totalPageTopRated
                     self.isLastPageTopRatedMovie.accept(self.pageTopRated == self.totalPageTopRated)
                     self.pageTopRated += 1
 //                    self.listTopRatedMovie.value = data.results ?? []
-                    self.listTopRatedMovie.accept(data.results ?? [])
+                    self.listTopRatedMovie.accept(data)
                 } else {
 //                    self.isLastPageTopRatedMovie.value = self.pageTopRated == self.totalPageTopRated
                     self.isLastPageTopRatedMovie.accept(self.pageTopRated == self.totalPageTopRated)
                     self.pageTopRated += 1
-                    var newData: [BaseResponse.Result] = []
+                    var newData: [BaseResult] = []
                     newData.append(contentsOf: self.listTopRatedMovie.value)
-                    newData.append(contentsOf: data.results ?? [])
+                    newData.append(contentsOf: data)
 //                    self.listTopRatedMovie.value = newData
                     self.listTopRatedMovie.accept(newData)
                 }
@@ -261,20 +261,20 @@ extension DefaultBaseViewModel {
         self.useCase.getUpComing(with: self.pageUpComing) { data in
             switch data {
             case .success(let data):
-                self.totalPageUpComing = data.total_results ?? 0
+                self.totalPageUpComing = data[0].total_pages
                 if self.pageUpComing == 1 {
 //                    self.isLastPageUpComing.value = self.pageUpComing == self.totalPageUpComing
                     self.isLastPageUpComing.accept(self.pageUpComing == self.totalPageUpComing)
                     self.pageUpComing += 1
 //                    self.listUpComingMovie.value = data.results ?? []
-                    self.listUpComingMovie.accept(data.results ?? [])
+                    self.listUpComingMovie.accept(data)
                 } else {
 //                    self.isLastPageUpComing.value = self.pageUpComing == self.totalPageUpComing
                     self.isLastPageUpComing.accept(self.pageUpComing == self.totalPageUpComing)
                     self.pageUpComing += 1
-                    var newData: [BaseResponse.Result] = []
+                    var newData: [BaseResult] = []
                     newData.append(contentsOf: self.listUpComingMovie.value)
-                    newData.append(contentsOf: data.results ?? [])
+                    newData.append(contentsOf: data)
 //                    self.listUpComingMovie.value = newData
                     self.listUpComingMovie.accept(newData)
                 }

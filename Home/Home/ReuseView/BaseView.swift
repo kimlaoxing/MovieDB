@@ -51,8 +51,8 @@ final class BaseView: UIView {
         ])
     }
     
-    func setContent(with data: BaseResponse.Result) {
+    func setContent(with data: BaseResult) {
         label.text = data.title
-        backgroundImage.downloaded(from: data.poster_path ?? "")
+        backgroundImage.downloaded(from: data.poster_path)
     }
 }

@@ -20,7 +20,7 @@ final class BaseCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(baseView)
     }
     
-    func setContent(with data: BaseResponse.Result) {
+    func setContent(with data: BaseResult) {
         baseView.setContent(with: data)
     }
 }

@@ -1,5 +1,4 @@
 import UIKit
-import Router
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
