@@ -3,7 +3,7 @@ import Favorite
 
 protocol DetailBaseUseCaseProtocol {
   func getDetailMovie(with id: Int, completion: @escaping (Result<DetailBaseResult, Error>) -> Void)
-  func addFavorite(_ favoriteModel: FavoriteModel)
+  func addFavorite(_ favoriteModel: FavoriteResult)
   func deleteFavorite(_ id: Int)
   func getFavorite(_ id: Int, completion: @escaping(Bool) -> Void)
 }
@@ -32,8 +32,8 @@ class DetailBaseInteractor: DetailBaseUseCaseProtocol {
         }
     }
     
-    func addFavorite(_ favoriteModel: FavoriteModel) {
-        self.favoriteRepository.addFavorite(favoriteModel)
+    func addFavorite(_ favoriteModel: FavoriteResult) {
+        self.favoriteRepository.addFavorite(DetailBaseMapper.favoriteResultToResponse(result: favoriteModel))
     }
     
     func deleteFavorite(_ id: Int) {

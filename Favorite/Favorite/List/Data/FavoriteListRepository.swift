@@ -1,7 +1,7 @@
 import Foundation
 
 public protocol FavoriteListRepositoryProtocol {
-    func getAllFavoriteGame(completion: @escaping(_ members: [FavoriteModel]) -> Void)
+    func getAllFavoriteGame(completion: @escaping(_ data: [FavoriteResult]) -> Void)
     func getFavorite(_ id: Int, completion: @escaping(_ bool: Bool) -> Void)
     func addFavorite(_ favoriteModel: FavoriteModel)
     func deleteFavorite(_ id: Int)
@@ -22,9 +22,9 @@ public class FavoriteListRepository: NSObject {
 }
 
 extension FavoriteListRepository: FavoriteListRepositoryProtocol {
-    public func getAllFavoriteGame(completion: @escaping ([FavoriteModel]) -> Void) {
-        self.localData.getAllFavoriteGame { members in
-            completion(members)
+    public func getAllFavoriteGame(completion: @escaping ([FavoriteResult]) -> Void) {
+        self.localData.getAllFavoriteGame { data in
+            completion(FavoriteListMapper.detailBaseMapper(response: data))
         }
     }
     

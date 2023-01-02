@@ -8,7 +8,7 @@ final class DetailBaseViewController: UIViewController {
     
     var viewModel: DetailBaseViewModel?
     private var data: DetailBaseResult?
-    private var favoriteModel: FavoriteModel?
+    private var favoriteModel: FavoriteResult?
     private let bag = DisposeBag()
     
     private lazy var contentView = DetailBaseView()
@@ -42,7 +42,7 @@ final class DetailBaseViewController: UIViewController {
             guard let self = self, let data = data else { return }
             self.data = data
             self.updateContent(with: data)
-            self.favoriteModel = FavoriteModel(id: Int32(data.id),
+            self.favoriteModel = FavoriteResult(id: Int32(data.id),
                                                popularity: data.popularity,
                                                poster_path: data.poster_path,
                                                release_date: data.release_date,
@@ -96,7 +96,7 @@ final class DetailBaseViewController: UIViewController {
     
     @objc private func deleteButton() {
         if let data = self.favoriteModel {
-            self.viewModel?.deleteFavorite(Int(data.id ?? 0))
+            self.viewModel?.deleteFavorite(Int(data.id))
         }
     }
     

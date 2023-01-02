@@ -10,7 +10,7 @@ protocol FavoriteListViewModelInput {
 }
 
 protocol FavoriteListViewModelOutput {
-    var gameListFavorite: Observable<[FavoriteModel]?> { get }
+    var gameListFavorite: Observable<[FavoriteResult]?> { get }
     var state: BehaviorRelay<BaseViewState> { get }
 }
 
@@ -18,7 +18,7 @@ protocol FavoriteListViewModel: FavoriteListViewModelOutput, FavoriteListViewMod
 
 final class DefaultFavoriteListViewModel: FavoriteListViewModel {
     
-    let gameListFavorite: Observable<[FavoriteModel]?> = Observable([])
+    let gameListFavorite: Observable<[FavoriteResult]?> = Observable([])
     let state: BehaviorRelay<BaseViewState> = BehaviorRelay.init(value: .loading)
     private let router: Routes
     private let useCase: FavoriteListUseCaseProtocol

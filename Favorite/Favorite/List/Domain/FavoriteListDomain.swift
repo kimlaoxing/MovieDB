@@ -1,7 +1,7 @@
 import Foundation
 
 protocol FavoriteListUseCaseProtocol {
-    func getListFavorite(_ completion: @escaping ([FavoriteModel]) -> Void)
+    func getListFavorite(_ completion: @escaping ([FavoriteResult]) -> Void)
     func deleteGame(with id: Int)
 }
 
@@ -15,7 +15,7 @@ class FavoriteListInteractor: FavoriteListUseCaseProtocol {
         self.repository = repository
     }
     
-    func getListFavorite(_ completion: @escaping ([FavoriteModel]) -> Void) {
+    func getListFavorite(_ completion: @escaping ([FavoriteResult]) -> Void) {
         self.repository.getAllFavoriteGame { data in
             completion(data)
         }

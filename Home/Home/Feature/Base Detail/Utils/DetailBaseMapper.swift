@@ -1,4 +1,5 @@
 import Foundation
+import Favorite
 
 final class DetailBaseMapper {
     
@@ -31,6 +32,15 @@ final class DetailBaseMapper {
                                                         poster_path: i.poster_path ?? "",
                                                         production_companies: production_companies,
                                                         overview: i.overview ?? "")
+        return result
+    }
+    
+    static func favoriteResultToResponse(result: FavoriteResult) -> FavoriteModel {
+        let result: FavoriteModel = FavoriteModel(id: result.id,
+                                                  popularity: result.popularity,
+                                                  poster_path: result.poster_path,
+                                                  release_date: result.release_date,
+                                                  title: result.title)
         return result
     }
 }

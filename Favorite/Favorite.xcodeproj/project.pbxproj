@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		33D95FEA57B2E629A1FEE6F3 /* Pods_Favorite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3EE282817067E3BB8D1139F /* Pods_Favorite.framework */; };
+		EA1283122962710900B28B0A /* FavoriteListMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1283112962710900B28B0A /* FavoriteListMapper.swift */; };
+		EA1283152962760900B28B0A /* FavoriteResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1283142962760900B28B0A /* FavoriteResult.swift */; };
 		EA209A602902768900412161 /* LocalDataSource.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA209A5E2902768900412161 /* LocalDataSource.xcdatamodeld */; };
 		EA209ACF290280FA00412161 /* FavoriteTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209ACE290280FA00412161 /* FavoriteTabBar.swift */; };
 		EA5AFD2C295F192700F7CB31 /* FavoriteListInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5AFD2B295F192700F7CB31 /* FavoriteListInjection.swift */; };
@@ -44,6 +46,8 @@
 		2E1D920E942E3F42F9DEBDCF /* Pods-Favorite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favorite.release.xcconfig"; path = "Target Support Files/Pods-Favorite/Pods-Favorite.release.xcconfig"; sourceTree = "<group>"; };
 		7146E235EAF7640FC990F9F6 /* Pods-Favorite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favorite.debug.xcconfig"; path = "Target Support Files/Pods-Favorite/Pods-Favorite.debug.xcconfig"; sourceTree = "<group>"; };
 		C3EE282817067E3BB8D1139F /* Pods_Favorite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Favorite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA1283112962710900B28B0A /* FavoriteListMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListMapper.swift; sourceTree = "<group>"; };
+		EA1283142962760900B28B0A /* FavoriteResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteResult.swift; sourceTree = "<group>"; };
 		EA209A5F2902768900412161 /* LocalDataSource.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalDataSource.xcdatamodel; sourceTree = "<group>"; };
 		EA209AC829027F9100412161 /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA209ACE290280FA00412161 /* FavoriteTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTabBar.swift; sourceTree = "<group>"; };
@@ -96,6 +100,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EA12830F296270F400B28B0A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EA1283112962710900B28B0A /* FavoriteListMapper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EA1283132962760400B28B0A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EA1283142962760900B28B0A /* FavoriteResult.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		EA209ACD290280F200412161 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +163,7 @@
 		EAB1461D290126A3002B51E2 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				EA12830F296270F400B28B0A /* Utils */,
 				EA5AFD2A295F191B00F7CB31 /* DI */,
 				EAB1462429012766002B51E2 /* Domain */,
 				EAB1462329012762002B51E2 /* Data */,
@@ -174,6 +195,7 @@
 		EAB1462429012766002B51E2 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				EA1283132962760400B28B0A /* Data */,
 				EAB1462E290127E3002B51E2 /* FavoriteListDomain.swift */,
 			);
 			path = Domain;
@@ -309,10 +331,12 @@
 				EAB1462D290127C9002B51E2 /* FavoriteListRepository.swift in Sources */,
 				EA209ACF290280FA00412161 /* FavoriteTabBar.swift in Sources */,
 				EA209A602902768900412161 /* LocalDataSource.xcdatamodeld in Sources */,
+				EA1283152962760900B28B0A /* FavoriteResult.swift in Sources */,
 				EAB1462629012784002B51E2 /* FavoriteListViewController.swift in Sources */,
 				EAB146312901287A002B51E2 /* FavoriteTableViewCell.swift in Sources */,
 				EAB1462B290127C1002B51E2 /* FavoriteListLocal.swift in Sources */,
 				EAB1466E29012F19002B51E2 /* FavoriteModel.swift in Sources */,
+				EA1283122962710900B28B0A /* FavoriteListMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

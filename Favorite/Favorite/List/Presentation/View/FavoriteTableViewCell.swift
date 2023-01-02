@@ -101,13 +101,13 @@ final class FavoriteTableViewCell: UITableViewCell {
         ])
     }
     
-    func setContent(with data: FavoriteModel) {
-        self.title.text = data.title ?? ""
-        self.backgroundImage.downloaded(from: data.poster_path ?? "")
+    func setContent(with data: FavoriteResult) {
+        self.title.text = data.title
+        self.backgroundImage.downloaded(from: data.poster_path)
         self.releaseDateTitle.text = "Release Date"
-        self.releaseDateValue.text = data.release_date ?? ""
+        self.releaseDateValue.text = data.release_date
         self.ratinImage.image = UIImage(systemName: "star.fill")
         self.ratinImage.tintColor = .black
-        self.ratingLabel.text = "\(Int(data.popularity ?? 0) / 100)"
+        self.ratingLabel.text = "\(Int(data.popularity) / 100)"
     }
 }

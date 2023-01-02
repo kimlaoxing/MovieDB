@@ -1,5 +1,4 @@
 import Foundation
-import Components
 
 public class FavoriteModel {
     public let id: Int32?

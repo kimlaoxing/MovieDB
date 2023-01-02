@@ -5,7 +5,7 @@ import Router
 import RxRelay
 
 protocol DetailBaseViewModelOutput {
-    func addFavorite(_ favoriteModel: FavoriteModel)
+    func addFavorite(_ favoriteModel: FavoriteResult)
     func getDetailMovie(with id: Int)
     func deleteFavorite(_ id: Int)
     func getFavorite(_ id: Int)
@@ -63,7 +63,7 @@ final class DefaultDetailBaseViewModel: DetailBaseViewModel {
         }
     }
     
-    func addFavorite(_ favoriteModel: FavoriteModel) {
+    func addFavorite(_ favoriteModel: FavoriteResult) {
         self.state.accept(.loading)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.useCase.addFavorite(favoriteModel)
