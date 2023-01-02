@@ -13,7 +13,7 @@ protocol DetailBaseViewModelOutput {
 }
 
 protocol DetailBaseViewModelInput {
-    var baseDetailModel: BehaviorRelay<DetailBaseModel?> { get }
+    var baseDetailModel: BehaviorRelay<DetailBaseResult?> { get }
     var state: BehaviorRelay<BaseViewState> { get }
     var buttonState: BehaviorRelay<DetailBaseButtonMode> { get }
     var error: BehaviorRelay<String> { get }
@@ -23,7 +23,7 @@ protocol DetailBaseViewModel: DetailBaseViewModelInput, DetailBaseViewModelOutpu
 
 final class DefaultDetailBaseViewModel: DetailBaseViewModel {
     
-    let baseDetailModel: BehaviorRelay<DetailBaseModel?> = BehaviorRelay.init(value: nil)
+    let baseDetailModel: BehaviorRelay<DetailBaseResult?> = BehaviorRelay.init(value: nil)
     let state: BehaviorRelay<BaseViewState> = BehaviorRelay.init(value: .loading)
     let buttonState: BehaviorRelay<DetailBaseButtonMode>  = BehaviorRelay.init(value: .notSaved)
     let error: BehaviorRelay<String>  = BehaviorRelay.init(value: "")

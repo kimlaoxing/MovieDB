@@ -25,7 +25,7 @@
 		EA209A9C29027B6900412161 /* BaseRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209A9B29027B6900412161 /* BaseRemote.swift */; };
 		EA209A9E29027B7000412161 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209A9D29027B7000412161 /* BaseRepository.swift */; };
 		EA209AA029027BC500412161 /* BaseDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209A9F29027BC500412161 /* BaseDomain.swift */; };
-		EA209AA729027C2D00412161 /* DetailBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209AA629027C2D00412161 /* DetailBaseModel.swift */; };
+		EA209AA729027C2D00412161 /* DetailBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209AA629027C2D00412161 /* DetailBaseResponse.swift */; };
 		EA209AA929027C3900412161 /* DetailBaseButtonMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209AA829027C3900412161 /* DetailBaseButtonMode.swift */; };
 		EA209AAB29027C4200412161 /* DetailBaseRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209AAA29027C4200412161 /* DetailBaseRemote.swift */; };
 		EA209AAD29027C4A00412161 /* DetailBaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209AAC29027C4A00412161 /* DetailBaseRepository.swift */; };
@@ -40,6 +40,8 @@
 		EA2FCB85295EC37300E75917 /* DetailBaseInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2FCB84295EC37300E75917 /* DetailBaseInjection.swift */; };
 		EA4BB58A29617C0E00BCA8C2 /* BaseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4BB58929617C0E00BCA8C2 /* BaseResult.swift */; };
 		EA4BB58D29617F1800BCA8C2 /* BaseResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4BB58C29617F1800BCA8C2 /* BaseResponseMapper.swift */; };
+		EA4BB59029618F9600BCA8C2 /* DetailBaseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4BB58F29618F9600BCA8C2 /* DetailBaseMapper.swift */; };
+		EA4BB5942961900200BCA8C2 /* DetailBaseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4BB5932961900200BCA8C2 /* DetailBaseResult.swift */; };
 		EA54FFF0295E9A7600D41289 /* BaseInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA54FFEF295E9A7600D41289 /* BaseInjection.swift */; };
 		EA5D8318294994610054C6C0 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D8317294994610054C6C0 /* ErrorViewController.swift */; };
 /* End PBXBuildFile section */
@@ -79,7 +81,7 @@
 		EA209A9B29027B6900412161 /* BaseRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRemote.swift; sourceTree = "<group>"; };
 		EA209A9D29027B7000412161 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		EA209A9F29027BC500412161 /* BaseDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDomain.swift; sourceTree = "<group>"; };
-		EA209AA629027C2D00412161 /* DetailBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBaseModel.swift; sourceTree = "<group>"; };
+		EA209AA629027C2D00412161 /* DetailBaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBaseResponse.swift; sourceTree = "<group>"; };
 		EA209AA829027C3900412161 /* DetailBaseButtonMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBaseButtonMode.swift; sourceTree = "<group>"; };
 		EA209AAA29027C4200412161 /* DetailBaseRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBaseRemote.swift; sourceTree = "<group>"; };
 		EA209AAC29027C4A00412161 /* DetailBaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBaseRepository.swift; sourceTree = "<group>"; };
@@ -94,6 +96,8 @@
 		EA2FCB84295EC37300E75917 /* DetailBaseInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBaseInjection.swift; sourceTree = "<group>"; };
 		EA4BB58929617C0E00BCA8C2 /* BaseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResult.swift; sourceTree = "<group>"; };
 		EA4BB58C29617F1800BCA8C2 /* BaseResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponseMapper.swift; sourceTree = "<group>"; };
+		EA4BB58F29618F9600BCA8C2 /* DetailBaseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBaseMapper.swift; sourceTree = "<group>"; };
+		EA4BB5932961900200BCA8C2 /* DetailBaseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBaseResult.swift; sourceTree = "<group>"; };
 		EA54FFEF295E9A7600D41289 /* BaseInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInjection.swift; sourceTree = "<group>"; };
 		EA5D8317294994610054C6C0 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +200,7 @@
 		EA209A8729027AD900412161 /* Base Detail */ = {
 			isa = PBXGroup;
 			children = (
+				EA4BB58E29618F8200BCA8C2 /* Utils */,
 				EA2FCB83295EC36700E75917 /* DI */,
 				EA209AA429027C1F00412161 /* Data */,
 				EA209AA229027C1400412161 /* Presentation */,
@@ -254,7 +259,8 @@
 		EA209AA129027C1000412161 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				EA209AAE29027C5300412161 /* DetailBaseDomain.swift */,
+				EA4BB59229618FF400BCA8C2 /* UseCase */,
+				EA4BB59129618FEF00BCA8C2 /* Data */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -290,7 +296,7 @@
 		EA209AA529027C2200412161 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EA209AA629027C2D00412161 /* DetailBaseModel.swift */,
+				EA209AA629027C2D00412161 /* DetailBaseResponse.swift */,
 				EA209AA829027C3900412161 /* DetailBaseButtonMode.swift */,
 			);
 			path = Model;
@@ -361,6 +367,30 @@
 				EA4BB58C29617F1800BCA8C2 /* BaseResponseMapper.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		EA4BB58E29618F8200BCA8C2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EA4BB58F29618F9600BCA8C2 /* DetailBaseMapper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EA4BB59129618FEF00BCA8C2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EA4BB5932961900200BCA8C2 /* DetailBaseResult.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EA4BB59229618FF400BCA8C2 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				EA209AAE29027C5300412161 /* DetailBaseDomain.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		EA54FFEE295E9A7000D41289 /* DI */ = {
@@ -481,7 +511,8 @@
 				EA209A9629027B5200412161 /* BaseResponse.swift in Sources */,
 				EA209A9829027B5900412161 /* MovieCategory.swift in Sources */,
 				EA209A8D29027B0200412161 /* BaseTableViewCell.swift in Sources */,
-				EA209AA729027C2D00412161 /* DetailBaseModel.swift in Sources */,
+				EA4BB5942961900200BCA8C2 /* DetailBaseResult.swift in Sources */,
+				EA209AA729027C2D00412161 /* DetailBaseResponse.swift in Sources */,
 				EA209AB529027C7200412161 /* DetailBaseViewModel.swift in Sources */,
 				EA209AC629027E3A00412161 /* BaseCollectionViewCell.swift in Sources */,
 				EA209AA929027C3900412161 /* DetailBaseButtonMode.swift in Sources */,
@@ -498,6 +529,7 @@
 				EA209A9E29027B7000412161 /* BaseRepository.swift in Sources */,
 				EA4BB58A29617C0E00BCA8C2 /* BaseResult.swift in Sources */,
 				EA209AAF29027C5300412161 /* DetailBaseDomain.swift in Sources */,
+				EA4BB59029618F9600BCA8C2 /* DetailBaseMapper.swift in Sources */,
 				EA209B262902947300412161 /* ListSectionTableViewCell.swift in Sources */,
 				EA209AA029027BC500412161 /* BaseDomain.swift in Sources */,
 				EA209AAB29027C4200412161 /* DetailBaseRemote.swift in Sources */,

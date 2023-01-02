@@ -7,7 +7,7 @@ import RxSwift
 final class DetailBaseViewController: UIViewController {
     
     var viewModel: DetailBaseViewModel?
-    private var data: DetailBaseModel?
+    private var data: DetailBaseResult?
     private var favoriteModel: FavoriteModel?
     private let bag = DisposeBag()
     
@@ -42,11 +42,11 @@ final class DetailBaseViewController: UIViewController {
             guard let self = self, let data = data else { return }
             self.data = data
             self.updateContent(with: data)
-            self.favoriteModel = FavoriteModel(id: Int32(data.id ?? 0),
-                                               popularity: data.popularity ?? 0,
-                                               poster_path: data.poster_path ?? "",
-                                               release_date: data.release_date ?? "",
-                                               title: data.title ?? "")
+            self.favoriteModel = FavoriteModel(id: Int32(data.id),
+                                               popularity: data.popularity,
+                                               poster_path: data.poster_path,
+                                               release_date: data.release_date,
+                                               title: data.title)
         }).disposed(by: bag)
         
         viewModel?.state.subscribe(onNext: { [weak self] data in
@@ -70,9 +70,9 @@ final class DetailBaseViewController: UIViewController {
         ])
     }
     
-    private func updateContent(with data: DetailBaseModel) {
+    private func updateContent(with data: DetailBaseResult) {
         contentView.setContent(with: data)
-        title = "\(data.title ?? "Detail Movie")"
+        title = "\(data.title)"
     }
     
     private func handleState(with state: BaseViewState) {

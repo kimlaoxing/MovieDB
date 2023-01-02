@@ -1,7 +1,7 @@
 import Foundation
 import Components
 
-public struct DetailBaseModel: Codable {
+public struct DetailBaseResponse: Codable {
     public let adult: Bool?
     public let backdrop_path: String?
     public let budget: Int?

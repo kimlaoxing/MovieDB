@@ -188,50 +188,41 @@ final class DetailBaseView: UIView {
             ])
         ])
     }
-        
-    private func setGendre(with data: DetailBaseModel) {
+    
+    private func setGendre(with data: DetailBaseResult) {
         var gendres: String = ""
-        if data.genres != nil {
-            gendres = data.genres!.map({$0.name ?? ""}).joined(separator: ", ")
-        }
         gendreTitle.text = "Gendre:"
-        gendreValue.text = gendres
+        gendreValue.text = data.gendreName
     }
     
-    private func setProductionCompany(with data: DetailBaseModel) {
-        var productions: String = ""
-        if data.production_companies != nil {
-            productions = data.production_companies!.map({ $0.name ?? ""}).joined(separator: ", ")
-        }
+    private func setProductionCompany(with data: DetailBaseResult) {
         productionCompanyTitle.text = "Production Company:"
-        productionCompanyValue.text = productions
+        productionCompanyValue.text = data.production_companies
     }
     
-    private func setLanguage(with data: DetailBaseModel) {
+    private func setLanguage(with data: DetailBaseResult) {
         var productions: String = ""
-        if data.spoken_languages != nil {
-            productions = data.spoken_languages!.map({ $0.name ?? ""}).joined(separator: ", ")
-        }
+       
         languageTitle.text = "Languages:"
-        languageValue.text = productions
+        languageValue.text = data.spokenLanguageName
     }
     
-    private func setReleaseDate(with data: DetailBaseModel) {
-        releaseValue.text = data.release_date ?? ""
+    private func setReleaseDate(with data: DetailBaseResult) {
+        releaseValue.text = data.release_date
         releaseTitle.text = "Realesed Date:"
     }
     
-    private func setDescription(with data: DetailBaseModel) {
+    private func setDescription(with data: DetailBaseResult) {
         descriptionTitle.text = "Description:"
-        decriptionValue.text = data.overview ?? ""
+        decriptionValue.text = data.overview
     }
     
-    private func setFavoriteValue(with data: DetailBaseModel) {
-        favoriteValue.text = "\(data.vote_average ?? 0)"
+    private func setFavoriteValue(with data: DetailBaseResult) {
+        favoriteValue.text = "\(data.vote_average)"
     }
     
-    func setContent(with data: DetailBaseModel) {
-        backgroundImage.downloaded(from: data.backdrop_path ?? "")
+    func setContent(with data: DetailBaseResult) {
+        backgroundImage.downloaded(from: data.backdrop_path)
         self.setReleaseDate(with: data)
         self.setGendre(with: data)
         self.setProductionCompany(with: data)

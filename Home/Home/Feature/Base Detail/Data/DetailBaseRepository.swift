@@ -1,7 +1,7 @@
 import Foundation
 
 protocol DetailBaseRepositoryProtocol {
-    func getDetailMovie(with id: Int, completion: @escaping (Result<DetailBaseModel, Error>) -> Void)
+    func getDetailMovie(with id: Int, completion: @escaping (Result<DetailBaseResult, Error>) -> Void)
 }
 
 final class DetailBaseRepository: NSObject {
@@ -19,11 +19,11 @@ final class DetailBaseRepository: NSObject {
 }
 
 extension DetailBaseRepository: DetailBaseRepositoryProtocol {
-    func getDetailMovie(with id: Int, completion: @escaping (Result<DetailBaseModel, Error>) -> Void) {
+    func getDetailMovie(with id: Int, completion: @escaping (Result<DetailBaseResult, Error>) -> Void) {
         self.remote.getDetailMovie(with: id) { data in
             switch data {
             case .success(let data):
-                completion(.success(data))
+                completion(.success(DetailBaseMapper.detailBaseMapper(response: data)))
             case .failure(let error):
                 completion(.failure(error))
             }
