@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21197EBE8405A369E5C4D812 /* Pods_Profile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C84802BF18ACAF777EFE1C53 /* Pods_Profile.framework */; };
+		EA128318296276B600B28B0A /* ProfileViewForKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA128317296276B600B28B0A /* ProfileViewForKey.swift */; };
 		EA209AE0290281C800412161 /* Profile.h in Headers */ = {isa = PBXBuildFile; fileRef = EA209ADF290281C800412161 /* Profile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EA209AF22902826300412161 /* ProfileEditForkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209AF12902826300412161 /* ProfileEditForkey.swift */; };
 		EA209AF42902826B00412161 /* ProfileEditDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209AF32902826B00412161 /* ProfileEditDelegate.swift */; };
@@ -20,7 +21,6 @@
 		EA209B08290283F000412161 /* ProfileRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B07290283F000412161 /* ProfileRoute.swift */; };
 		EA209B0A2902840900412161 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B092902840900412161 /* ProfileViewController.swift */; };
 		EA209B0C2902841200412161 /* ProfileViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B0B2902841200412161 /* ProfileViewViewModel.swift */; };
-		EA209B0E2902841D00412161 /* ProfileViewForKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B0D2902841D00412161 /* ProfileViewForKey.swift */; };
 		EA209B102902842900412161 /* ProfileViewDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B0F2902842900412161 /* ProfileViewDomain.swift */; };
 		EA209B12290285B200412161 /* ProfileViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B11290285B200412161 /* ProfileViewHeader.swift */; };
 		EA209B19290286A600412161 /* Components.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA209B18290286A600412161 /* Components.framework */; };
@@ -52,6 +52,7 @@
 /* Begin PBXFileReference section */
 		8191DE4364B61EEC0E917D8E /* Pods-Profile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Profile.release.xcconfig"; path = "Target Support Files/Pods-Profile/Pods-Profile.release.xcconfig"; sourceTree = "<group>"; };
 		C84802BF18ACAF777EFE1C53 /* Pods_Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA128317296276B600B28B0A /* ProfileViewForKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewForKey.swift; sourceTree = "<group>"; };
 		EA209ADC290281C800412161 /* Profile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Profile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA209ADF290281C800412161 /* Profile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
 		EA209AF12902826300412161 /* ProfileEditForkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditForkey.swift; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		EA209B07290283F000412161 /* ProfileRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRoute.swift; sourceTree = "<group>"; };
 		EA209B092902840900412161 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EA209B0B2902841200412161 /* ProfileViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewViewModel.swift; sourceTree = "<group>"; };
-		EA209B0D2902841D00412161 /* ProfileViewForKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewForKey.swift; sourceTree = "<group>"; };
 		EA209B0F2902842900412161 /* ProfileViewDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewDomain.swift; sourceTree = "<group>"; };
 		EA209B11290285B200412161 /* ProfileViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewHeader.swift; sourceTree = "<group>"; };
 		EA209B18290286A600412161 /* Components.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Components.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +110,13 @@
 			);
 			name = Pods;
 			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		EA1283162962766F00B28B0A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		EA209AD2290281C800412161 = {
@@ -223,7 +230,7 @@
 		EA209B02290283B700412161 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				EA209B05290283C500412161 /* Model */,
+				EA128317296276B600B28B0A /* ProfileViewForKey.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -242,14 +249,6 @@
 				EA209B11290285B200412161 /* ProfileViewHeader.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		EA209B05290283C500412161 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				EA209B0D2902841D00412161 /* ProfileViewForKey.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		EA209B06290283D400412161 /* Router */ = {
@@ -271,6 +270,7 @@
 		EA611F57295FEA97009E6C5D /* DI */ = {
 			isa = PBXGroup;
 			children = (
+				EA1283162962766F00B28B0A /* Data */,
 				EA611F58295FEAA5009E6C5D /* ProfileViewInjection.swift */,
 			);
 			path = DI;
@@ -403,8 +403,8 @@
 			files = (
 				EA209AF42902826B00412161 /* ProfileEditDelegate.swift in Sources */,
 				EA611F56295FE4A2009E6C5D /* ProfileEditInjection.swift in Sources */,
+				EA128318296276B600B28B0A /* ProfileViewForKey.swift in Sources */,
 				EA209B00290282A700412161 /* ProfileEditDomain.swift in Sources */,
-				EA209B0E2902841D00412161 /* ProfileViewForKey.swift in Sources */,
 				EA611F59295FEAA5009E6C5D /* ProfileViewInjection.swift in Sources */,
 				EA209B0A2902840900412161 /* ProfileViewController.swift in Sources */,
 				EA209AF82902827D00412161 /* ProfileEditLocalData.swift in Sources */,
