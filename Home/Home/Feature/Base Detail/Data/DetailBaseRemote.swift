@@ -23,6 +23,7 @@ extension DetailBaseRemoteDataSource: DetailBaseRemoteDataSourceProtocol {
             .responseDecodable(of: DetailBaseResponse.self) { data in
                 switch data.result {
                 case .success(let data):
+                    print("your endpoint is \(endpoint)")
                     completion(.success(data))
                 case .failure(let error):
                     completion(.failure(error))

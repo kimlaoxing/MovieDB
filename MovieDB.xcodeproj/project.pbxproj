@@ -12,8 +12,6 @@
 		EA209A7729027A6600412161 /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EA209A7529027A6600412161 /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EA209B142902862500412161 /* Profile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA209B132902862500412161 /* Profile.framework */; };
 		EA209B152902862500412161 /* Profile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EA209B132902862500412161 /* Profile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EA41C84E2903F89700EBC25F /* SearchBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41C84D2903F89700EBC25F /* SearchBar.framework */; };
-		EA41C84F2903F89700EBC25F /* SearchBar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EA41C84D2903F89700EBC25F /* SearchBar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EA47F9F528FE960A00BA1EB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA47F9F428FE960A00BA1EB2 /* AppDelegate.swift */; };
 		EA47F9F728FE960A00BA1EB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA47F9F628FE960A00BA1EB2 /* SceneDelegate.swift */; };
 		EA47F9FE28FE960C00BA1EB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA47F9FD28FE960C00BA1EB2 /* Assets.xcassets */; };
@@ -35,7 +33,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EA41C84F2903F89700EBC25F /* SearchBar.framework in Embed Frameworks */,
 				EAB1461629012648002B51E2 /* Favorite.framework in Embed Frameworks */,
 				EAB1465529012AC9002B51E2 /* Components.framework in Embed Frameworks */,
 				EA47FA3228FE97ED00BA1EB2 /* Router.framework in Embed Frameworks */,
@@ -74,7 +71,6 @@
 			files = (
 				EA209B142902862500412161 /* Profile.framework in Frameworks */,
 				EAB1461529012648002B51E2 /* Favorite.framework in Frameworks */,
-				EA41C84E2903F89700EBC25F /* SearchBar.framework in Frameworks */,
 				DA62D357EFD041F652F5A622 /* Pods_MovieDB.framework in Frameworks */,
 				EAB1465429012AC9002B51E2 /* Components.framework in Frameworks */,
 				EA209A7629027A6600412161 /* Home.framework in Frameworks */,

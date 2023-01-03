@@ -190,7 +190,6 @@ final class DetailBaseView: UIView {
     }
     
     private func setGendre(with data: DetailBaseResult) {
-        var gendres: String = ""
         gendreTitle.text = "Gendre:"
         gendreValue.text = data.gendreName
     }
@@ -201,8 +200,6 @@ final class DetailBaseView: UIView {
     }
     
     private func setLanguage(with data: DetailBaseResult) {
-        var productions: String = ""
-       
         languageTitle.text = "Languages:"
         languageValue.text = data.spokenLanguageName
     }
@@ -218,7 +215,7 @@ final class DetailBaseView: UIView {
     }
     
     private func setFavoriteValue(with data: DetailBaseResult) {
-        favoriteValue.text = "\(data.vote_average)"
+        favoriteValue.text = "\(Int(data.popularity) / 100)"
     }
     
     func setContent(with data: DetailBaseResult) {
