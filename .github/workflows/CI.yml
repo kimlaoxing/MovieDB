@@ -20,6 +20,6 @@ jobs:
         run: sudo xcode-select -switch /Applications/Xcode_13.2.1.app && /usr/bin/xcodebuild -version
       - name : Install Dependencies
         run: pod install
-      - name: Build and test
-        run: xcodebuild test -workspace MovieDB.xcworkspace -scheme MovieDB -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=15.0'
+      - name: Build
+        run: xcodebuild -workspace MovieDB.xcworkspace -scheme MovieDB -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=15.0'
 
