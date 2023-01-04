@@ -23,4 +23,4 @@ jobs:
       - name: Install Dependencies
         run: pod install
       - name: Build
-        run: xcodebuild -workspace MovieDB.xcworkspace -scheme MovieDB -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.0'
+        run: xcodebuild -workspace MovieDB.xcworkspace -scheme MovieDB -destination 'platform=iOS Simulator,name=iPhone 8'
