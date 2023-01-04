@@ -23,8 +23,6 @@
 		EA209B0C2902841200412161 /* ProfileViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B0B2902841200412161 /* ProfileViewViewModel.swift */; };
 		EA209B102902842900412161 /* ProfileViewDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B0F2902842900412161 /* ProfileViewDomain.swift */; };
 		EA209B12290285B200412161 /* ProfileViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B11290285B200412161 /* ProfileViewHeader.swift */; };
-		EA209B19290286A600412161 /* Components.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA209B18290286A600412161 /* Components.framework */; };
-		EA209B1A290286A600412161 /* Components.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EA209B18290286A600412161 /* Components.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EA209B1D290286AD00412161 /* Router.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA209B1C290286AD00412161 /* Router.framework */; };
 		EA209B1E290286AD00412161 /* Router.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EA209B1C290286AD00412161 /* Router.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EA611F56295FE4A2009E6C5D /* ProfileEditInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA611F55295FE4A2009E6C5D /* ProfileEditInjection.swift */; };
@@ -41,7 +39,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EA209B1A290286A600412161 /* Components.framework in Embed Frameworks */,
 				EA209B1E290286AD00412161 /* Router.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -83,7 +80,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA209B19290286A600412161 /* Components.framework in Frameworks */,
 				EA209B1D290286AD00412161 /* Router.framework in Frameworks */,
 				21197EBE8405A369E5C4D812 /* Pods_Profile.framework in Frameworks */,
 			);

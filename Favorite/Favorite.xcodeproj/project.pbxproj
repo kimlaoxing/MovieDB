@@ -22,8 +22,6 @@
 		EAB1462D290127C9002B51E2 /* FavoriteListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB1462C290127C9002B51E2 /* FavoriteListRepository.swift */; };
 		EAB1462F290127E3002B51E2 /* FavoriteListDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB1462E290127E3002B51E2 /* FavoriteListDomain.swift */; };
 		EAB146312901287A002B51E2 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB146302901287A002B51E2 /* FavoriteTableViewCell.swift */; };
-		EAB1465729012AD0002B51E2 /* Components.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB1465629012AD0002B51E2 /* Components.framework */; };
-		EAB1465829012AD0002B51E2 /* Components.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EAB1465629012AD0002B51E2 /* Components.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EAB1466E29012F19002B51E2 /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB1466D29012F19002B51E2 /* FavoriteModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +32,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EAB1465829012AD0002B51E2 /* Components.framework in Embed Frameworks */,
 				EAB1461929012650002B51E2 /* Router.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -71,7 +68,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				33D95FEA57B2E629A1FEE6F3 /* Pods_Favorite.framework in Frameworks */,
-				EAB1465729012AD0002B51E2 /* Components.framework in Frameworks */,
 				EAB1461829012650002B51E2 /* Router.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,8 +22,6 @@
 		EA47FA4528FE9A6E00BA1EB2 /* SceneDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA47FA4428FE9A6E00BA1EB2 /* SceneDelegateExtension.swift */; };
 		EAB1461529012648002B51E2 /* Favorite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB1461429012648002B51E2 /* Favorite.framework */; };
 		EAB1461629012648002B51E2 /* Favorite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EAB1461429012648002B51E2 /* Favorite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EAB1465429012AC9002B51E2 /* Components.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB1465329012AC9002B51E2 /* Components.framework */; };
-		EAB1465529012AC9002B51E2 /* Components.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EAB1465329012AC9002B51E2 /* Components.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,7 +32,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				EAB1461629012648002B51E2 /* Favorite.framework in Embed Frameworks */,
-				EAB1465529012AC9002B51E2 /* Components.framework in Embed Frameworks */,
 				EA47FA3228FE97ED00BA1EB2 /* Router.framework in Embed Frameworks */,
 				EA209B152902862500412161 /* Profile.framework in Embed Frameworks */,
 				EA209A7729027A6600412161 /* Home.framework in Embed Frameworks */,
@@ -72,7 +69,6 @@
 				EA209B142902862500412161 /* Profile.framework in Frameworks */,
 				EAB1461529012648002B51E2 /* Favorite.framework in Frameworks */,
 				DA62D357EFD041F652F5A622 /* Pods_MovieDB.framework in Frameworks */,
-				EAB1465429012AC9002B51E2 /* Components.framework in Frameworks */,
 				EA209A7629027A6600412161 /* Home.framework in Frameworks */,
 				EA47FA3128FE97ED00BA1EB2 /* Router.framework in Frameworks */,
 			);

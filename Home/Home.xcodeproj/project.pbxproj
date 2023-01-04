@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		A24F4F69EAAEC5A4779F44E1 /* Pods_Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C4380DD02CCE3E6D1387D8D /* Pods_Home.framework */; };
 		EA209A6F29027A1C00412161 /* Home.h in Headers */ = {isa = PBXBuildFile; fileRef = EA209A6E29027A1C00412161 /* Home.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EA209A7B29027A8000412161 /* Components.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA209A7829027A8000412161 /* Components.framework */; };
-		EA209A7C29027A8000412161 /* Components.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EA209A7829027A8000412161 /* Components.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EA209A7D29027A8000412161 /* Favorite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA209A7929027A8000412161 /* Favorite.framework */; };
 		EA209A7E29027A8000412161 /* Favorite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EA209A7929027A8000412161 /* Favorite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EA209A7F29027A8000412161 /* Router.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA209A7A29027A8000412161 /* Router.framework */; };
@@ -55,7 +53,6 @@
 			files = (
 				EA209A7E29027A8000412161 /* Favorite.framework in Embed Frameworks */,
 				EA209A8029027A8000412161 /* Router.framework in Embed Frameworks */,
-				EA209A7C29027A8000412161 /* Components.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,7 +106,6 @@
 			files = (
 				EA209A7D29027A8000412161 /* Favorite.framework in Frameworks */,
 				EA209A7F29027A8000412161 /* Router.framework in Frameworks */,
-				EA209A7B29027A8000412161 /* Components.framework in Frameworks */,
 				A24F4F69EAAEC5A4779F44E1 /* Pods_Home.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

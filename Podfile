@@ -13,6 +13,7 @@ pod 'Declayout'
 pod 'Alamofire'
 pod 'RxSwift', '6.5.0'
 pod 'RxCocoa', '6.5.0'
+pod 'Components', :git => 'https://github.com/kimlaoxing/Components.git'
 end
 
 target 'Router' do
@@ -31,11 +32,6 @@ end
 
 target 'Profile' do
 project 'Profile/Profile.project'
-core_pods
-end
-
-target 'Components' do
-project 'Components/Components.project'
 core_pods
 end
 
