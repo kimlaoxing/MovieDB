@@ -38,8 +38,8 @@ extension HomeTabRoute where Self: Router {
     
     func toNowPlayingSection(with transition: Transition) {
         let router = DefaultRouter(rootTransition: transition)
-        let vc = ListSectionViewController()
-        let vm = DefaultBaseViewModel(router: router)
+        let vc = IGListKitViewController()
+        let vm = DefaultIGListKitViewModel(router: router)
         vc.viewModel = vm
         vc.category = .nowPlaying
         vc.hidesBottomBarWhenPushed = true

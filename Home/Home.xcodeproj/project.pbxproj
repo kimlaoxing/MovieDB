@@ -39,6 +39,13 @@
 		EA209B262902947300412161 /* ListSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B252902947300412161 /* ListSectionTableViewCell.swift */; };
 		EA209B2B2902A15E00412161 /* DetailMovieRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA209B2A2902A15E00412161 /* DetailMovieRoute.swift */; };
 		EA5D8318294994610054C6C0 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D8317294994610054C6C0 /* ErrorViewController.swift */; };
+		EA903CA4296C00A500DBA3AB /* IGListKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA903CA3296C00A500DBA3AB /* IGListKitViewController.swift */; };
+		EA903CA6296C00AD00DBA3AB /* IGListKitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA903CA5296C00AD00DBA3AB /* IGListKitViewModel.swift */; };
+		EA903CA8296C00B700DBA3AB /* IGListKitSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA903CA7296C00B700DBA3AB /* IGListKitSectionViewController.swift */; };
+		EA903CAD296C00E100DBA3AB /* IGListKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA903CAC296C00E100DBA3AB /* IGListKitModel.swift */; };
+		EA903CAF296C00EF00DBA3AB /* IGListKitCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA903CAE296C00EF00DBA3AB /* IGListKitCollectionCell.swift */; };
+		EA903CB1296C011E00DBA3AB /* IGListKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA903CB0296C011E00DBA3AB /* IGListKitView.swift */; };
+		EA903CB4296C060900DBA3AB /* IGListKitDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA903CB3296C060900DBA3AB /* IGListKitDataMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,6 +97,13 @@
 		EA209B252902947300412161 /* ListSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionTableViewCell.swift; sourceTree = "<group>"; };
 		EA209B2A2902A15E00412161 /* DetailMovieRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieRoute.swift; sourceTree = "<group>"; };
 		EA5D8317294994610054C6C0 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		EA903CA3296C00A500DBA3AB /* IGListKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGListKitViewController.swift; sourceTree = "<group>"; };
+		EA903CA5296C00AD00DBA3AB /* IGListKitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGListKitViewModel.swift; sourceTree = "<group>"; };
+		EA903CA7296C00B700DBA3AB /* IGListKitSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGListKitSectionViewController.swift; sourceTree = "<group>"; };
+		EA903CAC296C00E100DBA3AB /* IGListKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGListKitModel.swift; sourceTree = "<group>"; };
+		EA903CAE296C00EF00DBA3AB /* IGListKitCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGListKitCollectionCell.swift; sourceTree = "<group>"; };
+		EA903CB0296C011E00DBA3AB /* IGListKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGListKitView.swift; sourceTree = "<group>"; };
+		EA903CB3296C060900DBA3AB /* IGListKitDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGListKitDataMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +182,7 @@
 		EA209A8529027AD300412161 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				EA903CA2296C005D00DBA3AB /* IGListKit */,
 				EA209B1F2902941E00412161 /* List Section */,
 				EA209A8729027AD900412161 /* Base Detail */,
 				EA209A8629027AD600412161 /* Base */,
@@ -330,6 +345,52 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		EA903CA2296C005D00DBA3AB /* IGListKit */ = {
+			isa = PBXGroup;
+			children = (
+				EA903CB2296C060100DBA3AB /* Mapper */,
+				EA903CAB296C00DA00DBA3AB /* Data */,
+				EA903CA9296C00BE00DBA3AB /* Presentation */,
+			);
+			path = IGListKit;
+			sourceTree = "<group>";
+		};
+		EA903CA9296C00BE00DBA3AB /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				EA903CAA296C00D400DBA3AB /* Cell */,
+				EA903CA7296C00B700DBA3AB /* IGListKitSectionViewController.swift */,
+				EA903CA3296C00A500DBA3AB /* IGListKitViewController.swift */,
+				EA903CA5296C00AD00DBA3AB /* IGListKitViewModel.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		EA903CAA296C00D400DBA3AB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EA903CAE296C00EF00DBA3AB /* IGListKitCollectionCell.swift */,
+				EA903CB0296C011E00DBA3AB /* IGListKitView.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		EA903CAB296C00DA00DBA3AB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EA903CAC296C00E100DBA3AB /* IGListKitModel.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EA903CB2296C060100DBA3AB /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				EA903CB3296C060900DBA3AB /* IGListKitDataMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -441,6 +502,7 @@
 				EA209A9829027B5900412161 /* MovieCategory.swift in Sources */,
 				EA209A8D29027B0200412161 /* BaseTableViewCell.swift in Sources */,
 				EA209AA729027C2D00412161 /* DetailBaseModel.swift in Sources */,
+				EA903CA4296C00A500DBA3AB /* IGListKitViewController.swift in Sources */,
 				EA209AB529027C7200412161 /* DetailBaseViewModel.swift in Sources */,
 				EA209AC629027E3A00412161 /* BaseCollectionViewCell.swift in Sources */,
 				EA209AA929027C3900412161 /* DetailBaseButtonMode.swift in Sources */,
@@ -452,15 +514,21 @@
 				EA209B2B2902A15E00412161 /* DetailMovieRoute.swift in Sources */,
 				EA5D8318294994610054C6C0 /* ErrorViewController.swift in Sources */,
 				EA209A9C29027B6900412161 /* BaseRemote.swift in Sources */,
+				EA903CB4296C060900DBA3AB /* IGListKitDataMapper.swift in Sources */,
+				EA903CAD296C00E100DBA3AB /* IGListKitModel.swift in Sources */,
 				EA209A9E29027B7000412161 /* BaseRepository.swift in Sources */,
 				EA209AAF29027C5300412161 /* DetailBaseDomain.swift in Sources */,
 				EA209B262902947300412161 /* ListSectionTableViewCell.swift in Sources */,
 				EA209AA029027BC500412161 /* BaseDomain.swift in Sources */,
 				EA209AAB29027C4200412161 /* DetailBaseRemote.swift in Sources */,
 				EA209AC429027E3300412161 /* BaseView.swift in Sources */,
+				EA903CB1296C011E00DBA3AB /* IGListKitView.swift in Sources */,
 				EA209A8F29027B1000412161 /* TitleCollectionReusableView.swift in Sources */,
+				EA903CAF296C00EF00DBA3AB /* IGListKitCollectionCell.swift in Sources */,
 				EA209AAD29027C4A00412161 /* DetailBaseRepository.swift in Sources */,
 				EA209B242902944B00412161 /* ListSectionViewController.swift in Sources */,
+				EA903CA8296C00B700DBA3AB /* IGListKitSectionViewController.swift in Sources */,
+				EA903CA6296C00AD00DBA3AB /* IGListKitViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

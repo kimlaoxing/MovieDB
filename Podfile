@@ -11,6 +11,7 @@ pod 'Toast-Swift', '~> 5.0.1'
 pod 'SwiftLint'
 pod 'Declayout'
 pod 'Alamofire'
+pod 'IGListKit', '~> 4.0.0'
 end
 
 target 'Router' do
