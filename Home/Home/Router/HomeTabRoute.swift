@@ -39,9 +39,8 @@ extension HomeTabRoute where Self: Router {
     func toNowPlayingSection(with transition: Transition) {
         let router = DefaultRouter(rootTransition: transition)
         let vc = IGListKitViewController()
-        let vm = DefaultIGListKitViewModel(router: router)
+        let vm = DefaultIGListKitViewModel(router: router, category: .nowPlaying)
         vc.viewModel = vm
-        vc.category = .nowPlaying
         vc.hidesBottomBarWhenPushed = true
         router.root = vc
         route(to: vc, as: transition)
@@ -49,10 +48,9 @@ extension HomeTabRoute where Self: Router {
     
     func toPopularMovieSection(with transition: Transition) {
         let router = DefaultRouter(rootTransition: transition)
-        let vc = ListSectionViewController()
-        let vm = DefaultBaseViewModel(router: router)
+        let vc = IGListKitViewController()
+        let vm = DefaultIGListKitViewModel(router: router, category: .popular)
         vc.viewModel = vm
-        vc.category = .popular
         vc.hidesBottomBarWhenPushed = true
         router.root = vc
         route(to: vc, as: transition)

@@ -18,6 +18,8 @@ protocol IGListKitViewModelOutput {
     func goToTopRatedSection()
     func goToPageUpComingSection()
     func popUpError()
+    func loadNextPage(with index: Int)
+    func getTitle() -> String
 }
 
 protocol IGListKitViewModelInput {
@@ -31,6 +33,7 @@ protocol IGListKitViewModelInput {
     var isLastPageUpComing: Observable<Bool?> { get }
     var state: Observable<BaseViewState> { get }
     var error: Observable<String> { get }
+    var category: MovieCategory { get }
 }
 
 protocol IGListKitViewModel: IGListKitViewModelInput, IGListKitViewModelOutput { }
@@ -48,6 +51,7 @@ final class DefaultIGListKitViewModel: IGListKitViewModel {
     let isLastPageTopRatedMovie: Observable<Bool?> = Observable(false)
     let isLastPageUpComing: Observable<Bool?> = Observable(false)
     let state: Observable<BaseViewState> = Observable(.loading)
+    let category: MovieCategory
     
     private let useCase = BaseUseCase()
     
@@ -55,7 +59,10 @@ final class DefaultIGListKitViewModel: IGListKitViewModel {
     
     typealias Routes = HomeTabRoute
     
-    init(router: Routes) {
+    init(router: Routes,
+         category: MovieCategory
+    ) {
+        self.category = category
         self.router = router
     }
     
@@ -73,14 +80,33 @@ final class DefaultIGListKitViewModel: IGListKitViewModel {
     private var isLoadNextUpComingMovie = false
     
     internal func viewDidLoad() {
-        getNowPlaying()
-        getPopular()
-        getTopRatedMovie()
-        getUpComing()
+        switch category {
+        case .popular:
+            getPopular()
+        case .nowPlaying:
+            getNowPlaying()
+        case .topRated:
+            getTopRatedMovie()
+        case .upComing:
+            getUpComing()
+        }
     }
     
     internal func goToDetailMovie(id: Int) {
         self.router.toDetailMovie(id: id)
+    }
+    
+    func getTitle() -> String {
+        switch category {
+        case .nowPlaying:
+            return "Now Playing List"
+        case .popular:
+            return "Popular Movie List"
+        case .topRated:
+            return "Top Rated Movie List"
+        case .upComing:
+            return "Up Coming Movie List"
+        }
     }
     
     func goToNowPlayingSection() {
@@ -105,6 +131,19 @@ final class DefaultIGListKitViewModel: IGListKitViewModel {
 }
 
 extension DefaultIGListKitViewModel {
+    
+    func loadNextPage(with index: Int) {
+        switch category {
+        case .nowPlaying:
+            loadNextPageNowPlaying(index: index)
+        case .popular:
+            loadNextPagePopularMovie(index: index)
+        case .topRated:
+            loadNextPageTopRate(index: index)
+        case .upComing:
+            loadNextPageUpComing(index: index)
+        }
+    }
 
     func loadNextPageNowPlaying(index: Int) {
         if pageNowPlaying <= totalPageNowPlaying {
@@ -193,6 +232,7 @@ extension DefaultIGListKitViewModel {
                     self.isLastPopularMovie.value = self.pagePopularMovie == self.totalPagePopularMovie
                     self.pagePopularMovie += 1
                     var newData: [IGListKitModel] = []
+                    newData.append(contentsOf: self.listPopularMovie.value)
                     newData.append(contentsOf: IGListKitDataMapper.BaseResponseToIGListKitModel(result: data.results ?? [], response: data))
                     self.listPopularMovie.value = newData
                 }

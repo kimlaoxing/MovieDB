@@ -3,7 +3,8 @@ import UIKit
 import Components
 
 protocol IGListKitSectionViewControllerProtocol {
-    func didSelectRow(with index: Int)
+    func didSelectRow(with id: Int)
+    func loadNextPage(with index: Int)
 }
 
 final class IGListKitSectionViewController: ListSectionController {
@@ -23,6 +24,7 @@ final class IGListKitSectionViewController: ListSectionController {
         if let object = object {
             cell.setContent(with: object)
         }
+        delegate?.loadNextPage(with: self.section)
         return cell
     }
 
